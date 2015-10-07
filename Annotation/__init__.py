@@ -47,7 +47,7 @@ class Annotator:
     def __init__(self, ann):
         self.ann = ann
         self.probe = {}
-
+        self.run()
     def run(self):
         """
         Run the annotation initial setup.
@@ -70,7 +70,6 @@ class Annotator:
                 new_probe.tour = data[25]
                 newcpg = {new_probe.id: new_probe}
                 self.probe.update(newcpg)
-        return self.probe
 
     def get_probes_id_from_gene(self, gene_name):
         probes = {k: self.probe[k] for k in self.probe if gene_name in self.probe[k].gene}

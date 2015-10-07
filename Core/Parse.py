@@ -87,7 +87,7 @@ class Parse:
             print("Probe id: %s" % probe_id)
             print("Sample", "\t", "Beta Avg")
 
-        for i, j in enumerate(self.sample_list):
+        for i, j in enumerate(self.samples):
             sample = j
             beta_val = self.beta_list[probe_id][i]
 
@@ -96,15 +96,15 @@ class Parse:
 
         return self.beta_list[probe_id]
 
-    def get_probes_avg(self, probe_list):
+    def get_probes_avg(self, probe_id_list):
         """
         Get probe AVG beta values from a list of probes for all samples
-        :param probe_list: A list of probe ids.
+        :param probe_id_list: A list of probe ids.
         :return: A list of beta values.
         """
         out = []
 
-        for i in probe_list:
+        for i in probe_id_list:
             try:
                 out.append(self.get_probe_avg(i))
             except Exception as ex:
@@ -147,3 +147,25 @@ class Parse:
 
         out.close()
         print("%s successfully processed. " % filename)
+
+    def get_sample_by_no(self, sample_no):
+        """
+        Returns a sample by number [zero based].
+        :param sample_no:
+        :return:
+        """
+        return self.samples[sample_no]
+
+    def get_sample_by_name(self, sample_name):
+        """
+        Returns a sample by name.
+        :param sample_name:
+        :return:
+        """
+        selected_sample = None
+        for i in self.samples:
+            if i.name == sample_name:
+                selected_sample = i
+                break
+        return selected_sample
+
