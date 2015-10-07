@@ -95,7 +95,6 @@ class Annotator:
         l = []
         for i in dic_keys:
             l.append(i)
-
         return l
 
     def get_probe(self, probe_id):
@@ -123,3 +122,9 @@ class Annotator:
             out_list.append(self.get_probe(probe_id))
 
         return out_list
+
+    def get_probes_from_gene(self, gene_name):
+        return self.get_probes(self.get_probes_id_from_gene(gene_name))
+
+    def get_probe_from_loc(self, loc):
+        return self.get_probes(self.get_probes_id_from_loc(loc))
