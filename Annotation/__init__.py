@@ -47,8 +47,8 @@ class Annotator:
     def __init__(self, ann):
         self.ann = ann
         self.probe = {}
-        self.run()
-    def run(self):
+        self.__run__()
+    def __run__(self):
         """
         Run the annotation initial setup.
         :return:
@@ -128,3 +128,6 @@ class Annotator:
 
     def get_probe_from_loc(self, loc):
         return self.get_probes(self.get_probes_id_from_loc(loc))
+
+    def get_probe_from_cpg(self, cpg_loc):
+        return self.get_probes(self.get_probe_from_cpg(cpg_loc))

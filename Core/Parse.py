@@ -137,16 +137,15 @@ class Parse:
             else:
                 sign = "-"
 
-            r = int( beta_val * 255)
+            r = int(beta_val * 255)
             g = 0
             b = 0
             out_line = "chr%s\t%d\t%d\t%s\t%f\t%s\t%d\t%d\t%d,%d,%d\n" % (
-                probe.chr, probe.cord-1 , probe.cord+1, probe.id, beta_val, sign,  0, 0, r, g, b)
+                probe.chr, probe.cord - 1, probe.cord + 1, probe.id, beta_val, sign, 0, 0, r, g, b)
             out.write(out_line)
-
-
         out.close()
         print("%s successfully processed. " % filename)
+        return True
 
     def get_sample_by_no(self, sample_no):
         """
@@ -168,4 +167,3 @@ class Parse:
                 selected_sample = i
                 break
         return selected_sample
-

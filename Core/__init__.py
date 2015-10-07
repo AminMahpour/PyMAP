@@ -10,3 +10,8 @@ class File:
         :return: a structured filename that includes correct and OS specific filename.
         """
         return os.path.abspath(filename)
+
+
+class Configs:
+    def __init__(self):
+        pass
