@@ -13,10 +13,10 @@ class Parse:
     def __init__(self, file, delim="\t"):
         self.file = file
         self.delim = delim
-        self.sample_list = []
         self.beta_list = {}
         self.filternan = True
         self.sample_number = None
+        self.samples = []
 
         # Run analysis
         self.run()
@@ -35,13 +35,10 @@ class Parse:
 
             if i.startswith("cg"):
                 currentbeta = i.strip("\n").strip(self.delim).split(self.delim)
-
                 bet = currentbeta[1:]
                 if len(bet) != self.sample_number:
                     continue
-
                 betas = []
-
                 for k in bet:
                     if k == "" or k == " ":
                         # ignore probes that their beta values are missing even in one sample.
@@ -60,8 +57,7 @@ class Parse:
             sam = Sample()
             sam.name = j
             sam.probes = {k: self.beta_list[k][i] for k in self.beta_list}
-            self.sample_list.append(sam)
-        # print(self.sample_list)
+            self.samples.append(sam)
 
     def get_id_beta(self):
         """
@@ -115,7 +111,7 @@ class Parse:
                 pass
         return out
 
-    def probes_to_bed(self, filename, probes, sample_no):
+    def probes_to_bed(self, filename, probes, sample):
         """
         Writes a BED file containing the probe beta info.
         :param filename: A filename to be stored.
@@ -126,24 +122,28 @@ class Parse:
 
         # lets parse some probe here.
         out = open(filename, mode="w")
-        out.write('''track name="PyMAP Output" description="Methylation" visibility=2 itemRgb="On" useScore=1\n''')
+        out.write('''track name="%s" description="Methylation" visibility=2 itemRgb="On" useScore=1\n''' % sample.name)
         for probe in probes:
-            sign = None
+            beta_val = None
+            try:
+                beta_val = float(sample.probes[probe.id])
+            except Exception as ex:
+                print("%s not found in %s." % (probe.id, sample.name))
+                continue
 
+            sign = None
             if probe.strand == "F":
                 sign = "+"
             else:
                 sign = "-"
 
-            try:
-                r = int( self.beta_list[probe.id][sample_no] * 255)
-                g = 0
-                b = 0
-                out_line = "chr%s\t%d\t%d\t%s\t%f\t%s\t%d\t%d\t%d,%d,%d\n" % (
-                    probe.chr, probe.cord-1 , probe.cord+1, probe.id, self.beta_list[probe.id][sample_no], sign,  0, 0, r, g, b)
-                out.write(out_line)
-            except Exception as ex:
-                pass
+            r = int( beta_val * 255)
+            g = 0
+            b = 0
+            out_line = "chr%s\t%d\t%d\t%s\t%f\t%s\t%d\t%d\t%d,%d,%d\n" % (
+                probe.chr, probe.cord-1 , probe.cord+1, probe.id, beta_val, sign,  0, 0, r, g, b)
+            out.write(out_line)
+
 
         out.close()
         print("%s successfully processed. " % filename)

@@ -72,19 +72,19 @@ class Annotator:
                 self.probe.update(newcpg)
         return self.probe
 
-    def get_probes_gene(self, gene_name):
+    def get_probes_id_from_gene(self, gene_name):
         probes = {k: self.probe[k] for k in self.probe if gene_name in self.probe[k].gene}
         return self.get_keys(probes.keys())
 
-    def get_probes_loc(self, probe_loc):
+    def get_probes_id_from_loc(self, probe_loc):
         probes = {k: self.probe[k] for k in self.probe if probe_loc in self.probe[k].loc}
         return self.get_keys(probes.keys())
 
-    def get_probes_cpg(self, cpg_loc):
+    def get_probes_id_from_cpg(self, cpg_loc):
         probes = {k: self.probe[k] for k in self.probe if cpg_loc in self.probe[k].tour}
         return self.get_keys(probes.keys())
 
-    def get_id_probe(self, probe_list):
+    def get_probes_id_from_probe(self, probe_list):
         return self.get_keys(probe_list.keys())
 
     def get_keys(self, dic_keys):
