@@ -26,15 +26,15 @@ out = os.path.abspath (args["out"])
 
 if check_file( file) :
     annotations = Annotation.Annotator()
-    parse = Core.Parse(file)
+    parse = Core.ParseFile(file)
     probe_list = annotations.get_probes_from_gene( args["gene"])
 
-    for i ,sam in enumerate (parse.samples):
+    for i ,sam in enumerate (parse.get_sample()):
         print("%d\t%s" % (i, sam.name))
 
     selected_sample = input("please select the sample to export from > ")
 
-    parse.probes_to_bed(out, probe_list, parse.get_sample_by_no(selected_sample))
+    Core.probes_to_bed(out, probe_list, Core.get_sample_by_no(parse.get_sample(), selected_sample))
     print("Done.")
 
 else:

@@ -21,8 +21,6 @@ parser.add_argument("-out", help="get output with [y]")
 
 args = vars(parser.parse_args())
 
-
-
 annotations = Annotation.Annotator()
 probes = annotations.get_probes_from_gene(args["gene"])
 

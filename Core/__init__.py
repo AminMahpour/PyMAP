@@ -70,14 +70,19 @@ class ParseFile:
             self.samples.append(samples_file)
 
     def get_sample(self):
+        """
+        Returns all samples in this file.
+        """
         return self.samples
 
-def get_id_beta(self):
+########
+
+def get_id_beta(sample):
     """
     Get all beta values.
     :return:
     """
-    return self.beta_list
+    return sample.probes
 
 def get_all_beta():
     """
@@ -90,26 +95,27 @@ def get_all_beta():
         listx.append(out)
     return listx
 
-def get_probe_avg( probe_id, verbose=False):
+def get_probe_avg( probe_id, samples, verbose=False):
     """
     Get Probe AVG values.
     :param probe_id: A list of probe ids.
     :return: A list of avg beta values.
     """
+    beta_val = []
     if verbose:
         print("Probe id: %s" % probe_id)
         print("Sample", "\t", "Beta Avg")
 
-    for i, j in enumerate(self.samples):
-        sample = j
-        beta_val = self.beta_list[probe_id][i]
+    for i, sample in enumerate(samples):
+        beta_val.append(sample.probes[probe_id])
 
         if verbose:
             print(sample.name, "\t", beta_val)
 
-    return self.beta_list[probe_id]
+    return beta_val
 
-def get_probes_avg( probe_id_list):
+
+def get_probes_avg(probe_id_list, sample):
     """
     Get probe AVG beta values from a list of probes for all samples
     :param probe_id_list: A list of probe ids.
@@ -119,14 +125,23 @@ def get_probes_avg( probe_id_list):
 
     for i in probe_id_list:
         try:
-            out.append(self.get_probe_avg(i))
+            out.append(sample.probes(i))
         except Exception as ex:
             pass
     return out
 
+
 def samples_to_bed( base_filename, probes, samples):
+    """
+    Return a BED file representative of all samples for the provided probes.
+    :param base_filename: A base name for output file
+    :param probes: A list of probes objects.
+    :param samples: A list of samples to extract data.
+    :return:
+    """
     for sample in samples:
-        self.probes_to_bed("%s-%s.bed" % (base_filename, sample.name), probes, sample)
+        probes_to_bed("%s-%s.bed" % (base_filename, sample.name), probes, sample)
+
 
 def probes_to_bed( filename, probes, sample):
     """
@@ -165,33 +180,36 @@ def probes_to_bed( filename, probes, sample):
     out.close()
     print("%s successfully processed. " % filename)
 
-def get_sample_by_no( sample_no):
+
+def get_sample_by_no(samples, sample_no):
     """
     Returns a sample by number [zero based].
     :param sample_no:
     :return:
     """
-    return self.samples[sample_no]
+    return samples[sample_no]
 
-def get_sample_by_name( sample_name):
+
+def get_sample_by_name(samples, sample_name):
     """
     Returns a sample by name.
     :param sample_name:
     :return:
     """
     selected_sample = None
-    for i in self.samples:
+    for i in samples:
         if i.name == sample_name:
             selected_sample = i
             break
     return selected_sample
 
-def get_all_sample_name(self):
+
+def get_all_sample_name(samples):
     """
     Get all sample name.
     :return: A list that contain sample names.
     """
     sample_list = []
-    for i in self.samples:
+    for i in samples:
         sample_list.append(i)
     return sample_list

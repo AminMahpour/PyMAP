@@ -27,10 +27,10 @@ out = os.path.abspath (args["out"])
 
 if check_file( file) :
     annotations = Annotation.Annotator()
-    parse = Core.Parse(file)
+    parse = Core.ParseFile(file)
     probe_list = annotations.get_probes_from_gene( args["gene"])
 
-    parse.samples_to_bed(out, probe_list, parse.samples)
+    Core.samples_to_bed(out, probe_list, parse.samples)
     print("Done.")
 
 else:
