@@ -17,7 +17,7 @@ def check_file(filename):
 # USAGE : ./convertbed.py -file Data/GSE42308.txt -out gello.bed -gene DENR
 parser = argparse.ArgumentParser()
 parser.add_argument("-file", help="File name that contains average beta values.")
-parser.add_argument("-out", help="File name that will be stored as BED file.")
+parser.add_argument("-out", help="directory that BED files will be stored.")
 parser.add_argument("-gene", help="Name of gene that BED file will be created for")
 args = vars(parser.parse_args())
 
@@ -31,12 +31,7 @@ if check_file( file) :
     parse = Core.Parse(file)
     probe_list = annotations.get_probes_from_gene( args["gene"])
 
-    for i ,sam in enumerate (parse.samples):
-        print("%d\t%s" % (i, sam.name))
-
-    selected_sample = input("please select the sample to export from > ")
-
-    parse.probes_to_bed(out, probe_list, parse.get_sample_by_no(selected_sample))
+    parse.samples_to_bed(out, probe_list, parse.samples)
     print("Done.")
 
 else:
