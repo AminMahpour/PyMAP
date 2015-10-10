@@ -26,8 +26,7 @@ file = os.path.abspath(args["file"])
 out = os.path.abspath (args["out"])
 
 if check_file( file) :
-    annotation_file = os.path.abspath( "Data/HumanMethylation450_15017482_v1-2.csv")
-    annotations = Annotation.Annotator(annotation_file)
+    annotations = Annotation.Annotator()
     parse = Core.Parse(file)
     probe_list = annotations.get_probes_from_gene( args["gene"])
 

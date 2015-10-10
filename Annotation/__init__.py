@@ -1,3 +1,4 @@
+import os
 class Probe:
     """
     This class holds probe info.
@@ -44,8 +45,12 @@ class Annotator:
     This class parse all information about Illumina probes.
     """
 
-    def __init__(self, ann):
-        self.ann = ann
+    def __init__(self):
+        ann_file = os.path.abspath("Data/config.ini")
+        for i in open(ann_file,mode="r"):
+            self.ann = os.path.join("Data/",i.strip("\n").strip("\r"))
+
+
         self.probe = {}
         self.__run__()
 

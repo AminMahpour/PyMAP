@@ -3,7 +3,7 @@ import Core.Stats
 import Annotation
 
 annotation_file = "Data/HumanMethylation450_15017482_v1-2.csv"
-annotations = Annotation.Annotator(annotation_file)
+annotations = Annotation.Annotator()
 
 file = "Data/GSE42308.txt"
 parse = Core.Parse(file)
