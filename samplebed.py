@@ -34,4 +34,4 @@ if check_file( file) :
     print("Done.")
 
 else:
-    print("File not exist.")
+    print("File does not exist.")
