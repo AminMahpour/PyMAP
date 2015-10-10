@@ -1,4 +1,6 @@
 import os
+
+
 class Probe:
     """
     This class holds probe info.
@@ -47,9 +49,8 @@ class Annotator:
 
     def __init__(self):
         ann_file = os.path.abspath("Data/config.ini")
-        for i in open(ann_file,mode="r"):
-            self.ann = os.path.join("Data/",i.strip("\n").strip("\r"))
-
+        for i in open(ann_file, mode="r"):
+            self.ann = os.path.join("Data/", i.strip("\n").strip("\r"))
 
         self.probe = {}
         self.__run__()
@@ -82,7 +83,7 @@ class Annotator:
         Get all probe ids.
         :return: a lst of probe ids.
         """
-        return  self.probe
+        return self.probe
 
     def get_probes_id_from_gene(self, gene_name):
         """

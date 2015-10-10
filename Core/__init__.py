@@ -16,6 +16,7 @@ class ParseBatch:
     """
     Parse a series of data in a folder.
     """
+
     def __init__(self, folder, delim="\t"):
         self.folder = folder
         self.samples = []
@@ -40,6 +41,7 @@ class ParseFile:
     """
     Parse a single file.
     """
+
     def __init__(self, filename, delim="\t"):
         self.delim = delim
         name_cols = []
@@ -75,6 +77,7 @@ class ParseFile:
         """
         return self.samples
 
+
 ########
 
 def get_id_beta(sample):
@@ -83,6 +86,7 @@ def get_id_beta(sample):
     :return:
     """
     return sample.probes
+
 
 def get_all_beta():
     """
@@ -95,7 +99,8 @@ def get_all_beta():
         listx.append(out)
     return listx
 
-def get_probe_avg( probe_id, samples, verbose=False):
+
+def get_probe_avg(probe_id, samples, verbose=False):
     """
     Get Probe AVG values.
     :param probe_id: A list of probe ids.
@@ -131,7 +136,7 @@ def get_probes_avg(probe_id_list, sample):
     return out
 
 
-def samples_to_bed( base_filename, probes, samples):
+def samples_to_bed(base_filename, probes, samples):
     """
     Return a BED file representative of all samples for the provided probes.
     :param base_filename: A base name for output file
@@ -143,7 +148,7 @@ def samples_to_bed( base_filename, probes, samples):
         probes_to_bed("%s-%s.bed" % (base_filename, sample.name), probes, sample)
 
 
-def probes_to_bed( filename, probes, sample):
+def probes_to_bed(filename, probes, sample):
     """
     Writes a BED file containing the probe beta info.
     :param filename: A filename to be stored.
@@ -155,7 +160,6 @@ def probes_to_bed( filename, probes, sample):
     out = open(filename, mode="w")
     out.write('''track name="%s" description="Methylation" visibility=2 itemRgb="On" useScore=1\n''' % sample.name)
     for probe in probes:
-
 
         beta_val = None
         try:
