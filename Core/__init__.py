@@ -20,9 +20,12 @@ class ParseBatch:
         self.delim = delim
         for file in os.listdir(os.path.abspath(self.folder)):
             if file.endswith(".txt"):
-                self.samples.append(ParseFile(os.path.abspath(os.path.join(self.folder,file))).get_sample())
+                parsed_file = ParseFile(os.path.abspath(os.path.join(self.folder, file))).get_sample()
+                self.samples.extend(parsed_file)
 
         print("%d samples processed." % len(self.samples))
+        for i in self.samples:
+            print(i.name)
 
     def get_all_samples(self):
         return self.samples
@@ -34,7 +37,8 @@ class ParseFile:
         name_cols = []
         avg_cols = []
         beta_file = {}
-        self.samples = None
+        beta_vals =[]
+        self.samples = []
         for line in open(filename, mode="r"):
             if line.startswith("TargetID"):
                 cols = line.strip("\n").strip("\r").split(self.delim)
@@ -43,17 +47,25 @@ class ParseFile:
                         name_cols.append(col.strip(".AVG_Beta"))
                         avg_cols.append(i)
 
+                beta_vals = []
+                for i in avg_cols:
+                    beta_vals.append({})
+
             if line.startswith("cg"):
                 cols = line.strip("\n").strip("\r").split(self.delim)
-                average = cols[avg_cols[0]].strip()
-                if average is not None and average != "":
-                    average = float(average)
 
-                beta_file.update({cols[0]: average})
-        samples_file = Sample()
-        samples_file.name = name_cols[0]
-        samples_file.probes = beta_file
-        self.samples = samples_file
+                for i, avg_col in enumerate(avg_cols):
+                    average = cols[avg_col].strip()
+                    if average is not None and average != "":
+                        average = float(average)
+                        beta_vals[i].update({cols[0]: average})
+
+
+        for i, betas in enumerate( beta_vals):
+            samples_file = Sample()
+            samples_file.name = name_cols[i]
+            samples_file.probes = betas
+            self.samples.append(samples_file)
 
     def get_sample(self):
         return self.samples
