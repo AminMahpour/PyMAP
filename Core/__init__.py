@@ -1,5 +1,6 @@
 import os
 
+
 class ParseConfig:
     def __init__(self):
         self.cutoff = None
@@ -9,6 +10,55 @@ class Sample:
     def __init__(self):
         self.name = None
         self.probes = None
+
+
+class ParseBatch:
+
+    def __init__(self, folder, delim="\t"):
+        self.folder = folder
+        self.samples = []
+        self.delim = delim
+        for file in os.listdir(os.path.abspath(self.folder)):
+            if file.endswith(".txt"):
+                self.samples.append(ParseFile(os.path.abspath(os.path.join(self.folder,file))).get_sample())
+
+        print("%d samples processed." % len(self.samples))
+
+    def get_all_samples(self):
+        return self.samples
+
+
+class ParseFile:
+    def __init__(self, filename, delim="\t"):
+        self.delim = delim
+        name_cols = []
+        avg_cols = []
+        beta_file = {}
+        self.samples = None
+        for line in open(filename, mode="r"):
+            if line.startswith("TargetID"):
+                cols = line.strip("\n").strip("\r").split(self.delim)
+                for i, col in enumerate(cols):
+                    if col.endswith(".AVG_Beta"):
+                        name_cols.append(col.strip(".AVG_Beta"))
+                        avg_cols.append(i)
+
+            if line.startswith("cg"):
+                cols = line.strip("\n").strip("\r").split(self.delim)
+                average = cols[avg_cols[0]].strip()
+                if average is not None and average != "":
+                    average = float(average)
+
+                beta_file.update({cols[0]: average})
+        samples_file = Sample()
+        samples_file.name = name_cols[0]
+        samples_file.probes = beta_file
+        self.samples = samples_file
+
+    def get_sample(self):
+        return self.samples
+
+
 
 
 class Parse:

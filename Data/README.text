@@ -1,0 +1,1 @@
+450k platform requires Illumina CSV formatted annotation file. Please put the name of the annotation file that you want to use in the config.ini file in this directory.
