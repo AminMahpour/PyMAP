@@ -78,20 +78,45 @@ class Annotator:
                 self.probe.update(newcpg)
 
     def get_probes_all(self):
+        """
+        Get all probe ids.
+        :return: a lst of probe ids.
+        """
         return  self.probe
+
     def get_probes_id_from_gene(self, gene_name):
+        """
+        Get all probes associated with a gene.
+        :param gene_name:
+        :return: a lst of probe ids.
+        """
         probes = {k: self.probe[k] for k in self.probe if gene_name in self.probe[k].gene}
         return self.get_keys(probes.keys())
 
     def get_probes_id_from_loc(self, probe_loc):
+        """
+        Get all probes associated with genomic locations.
+        :param probe_loc:
+        :return: a lst of probe ids.
+        """
         probes = {k: self.probe[k] for k in self.probe if probe_loc in self.probe[k].loc}
         return self.get_keys(probes.keys())
 
     def get_probes_id_from_cpg(self, cpg_loc):
+        """
+        Get all probes associated with CpG sites.
+        :param cpg_loc:
+        :return: a lst of probe ids.
+        """
         probes = {k: self.probe[k] for k in self.probe if cpg_loc in self.probe[k].tour}
         return self.get_keys(probes.keys())
 
     def get_probes_id_from_probe(self, probe_list):
+        """
+        Get all probes ids from a list of probe objects.
+        :param probe_list: A list of probe ids.
+        :return: a list of probe ids.
+        """
         return self.get_keys(probe_list.keys())
 
     def get_keys(self, dic_keys):
@@ -121,7 +146,7 @@ class Annotator:
 
     def get_probes(self, list_of_ids):
         """
-        This function returns a list of probe info from a list of ids.
+        This function returns a list of probe object from a list of ids.
         :param list_of_ids:
         :return:
         """
@@ -132,10 +157,25 @@ class Annotator:
         return out_list
 
     def get_probes_from_gene(self, gene_name):
+        """
+        Get a list probe objects from an associated gene name.
+        :param gene_name: Gene name in string format
+        :return:
+        """
         return self.get_probes(self.get_probes_id_from_gene(gene_name))
 
     def get_probe_from_loc(self, loc):
+        """
+        Get a list probe objects from genomic location.
+        :param loc: from Location object.
+        :return:
+        """
         return self.get_probes(self.get_probes_id_from_loc(loc))
 
     def get_probe_from_cpg(self, cpg_loc):
+        """
+        Get a list probe objects from cpg location.
+        :param cpg_loc: from CpG object
+        :return:
+        """
         return self.get_probes(self.get_probe_from_cpg(cpg_loc))

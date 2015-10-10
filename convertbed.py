@@ -21,7 +21,6 @@ parser.add_argument("-out", help="File name that will be stored as BED file.")
 parser.add_argument("-gene", help="Name of gene that BED file will be created for")
 args = vars(parser.parse_args())
 
-
 file = os.path.abspath(args["file"])
 out = os.path.abspath (args["out"])
 
