@@ -48,6 +48,7 @@ class Annotator:
         self.ann = ann
         self.probe = {}
         self.__run__()
+
     def __run__(self):
         """
         Run the annotation initial setup.
@@ -71,6 +72,8 @@ class Annotator:
                 newcpg = {new_probe.id: new_probe}
                 self.probe.update(newcpg)
 
+    def get_probes_all(self):
+        return  self.probe
     def get_probes_id_from_gene(self, gene_name):
         probes = {k: self.probe[k] for k in self.probe if gene_name in self.probe[k].gene}
         return self.get_keys(probes.keys())
