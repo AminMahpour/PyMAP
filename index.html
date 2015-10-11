@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Pymap by AminMahpour</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/AminMahpour/PyMAP">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Pymap</h1>
+            <h2>Python package for Methylation Analysis of Probes</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/AminMahpour/PyMAP/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/AminMahpour/PyMAP/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1></h1>
+
+<h1>
+<a id="pymap-python-package-to-analyze-450k-methylation-data" class="anchor" href="#pymap-python-package-to-analyze-450k-methylation-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>PYMAP PYTHON PACKAGE TO ANALYZE 450K METHYLATION DATA.</h1>
+
+<p>Example pipeline:</p>
+
+<h1>
+<a id="load-submodules" class="anchor" href="#load-submodules" aria-hidden="true"><span class="octicon octicon-link"></span></a>load submodules</h1>
+
+<p>import Annotation
+import Core</p>
+
+<h1>
+<a id="load-annotations" class="anchor" href="#load-annotations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load Annotations</h1>
+
+<p>annotation_file = "Data/HumanMethylation450_15017482_v1-2.csv"
+annotations = Annotation.Annotator()</p>
+
+<h1>
+<a id="load-and-parse-a-single-methylation-file-that-might-contain-info-for-one-or-more-sample" class="anchor" href="#load-and-parse-a-single-methylation-file-that-might-contain-info-for-one-or-more-sample" aria-hidden="true"><span class="octicon octicon-link"></span></a>load and parse a single methylation file that might contain info for one or more sample.</h1>
+
+<p>methyl_file = "EXAMPLE.txt"
+samples = Core.ParseFile(methyl_file)</p>
+
+<h1>
+<a id="load-and-parse-multiple-methylation-files" class="anchor" href="#load-and-parse-multiple-methylation-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>load and parse multiple methylation files</h1>
+
+<p>methyl_directory = "Data/"
+samples = Core.ParseBatch(methyl_directory)</p>
+
+<h1>
+<a id="get-probes-associated-with-a-gene" class="anchor" href="#get-probes-associated-with-a-gene" aria-hidden="true"><span class="octicon octicon-link"></span></a>get probes associated with a gene</h1>
+
+<p>gene= "TP53"
+probe_list = annotations.get_probes_from_gene(gene)
+print(probe_list)</p>
+
+<h1>
+<a id="get-sample-name-and-beta-values-from-parse-data" class="anchor" href="#get-sample-name-and-beta-values-from-parse-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>get sample name and beta values from parse data</h1>
+
+<p>for sample in samples:
+    print(sample.name)
+    beta_values = sample.probes  # beta_values are loaded from each sample.</p>
+
+<hr>
+
+<h2>
+<a id="command-line-executables" class="anchor" href="#command-line-executables" aria-hidden="true"><span class="octicon octicon-link"></span></a>COMMAND LINE EXECUTABLES:</h2>
+
+<p>convertbed.py creates a BED file that contains all information about probes that are associated with a specified gene.</p>
+
+<p>USAGE:
+     ./convertbed.py -file Data/METHYL_DATA.txt -out TP53.bed -gene TP53</p>
+
+<hr>
+
+<p>getidfromgene.py generates a text file that contains probe ids associated with a gene</p>
+
+<p>USAGE:
+    ./getidfromgene.py -gene TP53 -out y</p>
+
+<hr>
+
+<p>samplebed.py create multiple BED files that each represent a sample. the gene is also need to be specified.</p>
+
+<p>USAGE:
+    ./samplebed.py -file Data/GSE42308.txt -out Export/TP53 -gene TP53</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/AminMahpour">AminMahpour</a> can be found on <a href="https://github.com/AminMahpour/PyMAP">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
