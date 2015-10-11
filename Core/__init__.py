@@ -88,14 +88,14 @@ def get_id_beta(sample):
     return sample.probes
 
 
-def get_all_beta():
+def get_all_beta(sample):
     """
     Get
     :return:
     """
     listx = []
-    for key in self.beta_list.keys():
-        out = self.beta_list[key]
+    for key in sample.probes.keys():
+        out = sample.probes[key]
         listx.append(out)
     return listx
 

@@ -2,10 +2,13 @@ import Core
 import Core.Stats
 import Annotation
 
-#annotation_file = "Data/HumanMethylation450_15017482_v1-2.csv"
-#annotations = Annotation.Annotator()
+annotation_file = "Data/HumanMethylation450_15017482_v1-2.csv"
+annotations = Annotation.Annotator()
 
-Core.ParseBatch("Data/")
+print( annotations.get_probes_from_chr_loc(Annotation.chr_loc("12",123234099,123242197)))
+
+
+#Core.ParseBatch("Data/"
 
 
 #file = "Data/GSE42308.txt"

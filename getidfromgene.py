@@ -31,9 +31,9 @@ for i in probes:
 if args["out"] == "y" or args["out"] == "Y":
     out_file = open("%s-probes.txt" % args["gene"], mode="w")
     for i in probes:
-        out_file.write("%s\n"%i.id)
+        out_file.write("%s\n" % i.id)
     out_file.close()
 
 
-if len(probes) == 0 :
+if len(probes) == 0:
     print("Your gene did not return a valid probe id")
