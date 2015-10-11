@@ -8,9 +8,9 @@ Example pipeline:
 import Annotation
 import Core
 
-#Load Annotations
+#Load probe annotations
+#Make sure config.ini is set to correct Illumina probe dataset.
 
-annotation_file = "Data/HumanMethylation450_15017482_v1-2.csv"
 annotations = Annotation.Annotator()
 
 #load and parse a single methylation file that might contain info for one or more sample.
@@ -34,7 +34,7 @@ print(probe_list)
 for sample in samples:
     print(sample.name)
     beta_values = sample.probes  # beta_values are loaded from each sample.
-
+    print(Core.get
 
 -----------------------------------------------------------------------------
 COMMAND LINE EXECUTABLES:
