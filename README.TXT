@@ -21,8 +21,7 @@ samples = Core.ParseFile(methyl_file)
 #load and parse multiple methylation files
 
 methyl_directory = "Data/"
-samples = Core.ParseFile(methyl_directory)
-
+samples = Core.ParseBatch(methyl_directory)
 
 #get probes associated with a gene
 
