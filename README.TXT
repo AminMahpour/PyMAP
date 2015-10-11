@@ -34,3 +34,24 @@ print(probe_list)
 for sample in samples:
     print(sample.name)
     beta_values = sample.probes  # beta_values are loaded from each sample.
+
+
+-----------------------------------------------------------------------------
+COMMAND LINE EXECUTABLES:
+-----------------------------------------------------------------------------
+convertbed.py creates a BED file that contains all information about probes that are associated with a specified gene.
+
+USAGE:
+     ./convertbed.py -file Data/METHYL_DATA.txt -out TP53.bed -gene TP53
+__________________________
+
+getidfromgene.py generates a text file that contains probe ids associated with a gene
+
+USAGE:
+    ./getidfromgene.py -gene TP53 -out y
+__________________________
+
+samplebed.py create multiple BED files that each represent a sample. the gene is also need to be specified.
+
+USAGE:
+    ./samplebed.py -file Data/GSE42308.txt -out Export/TP53 -gene TP53
