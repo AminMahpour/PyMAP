@@ -7,6 +7,7 @@ Example pipeline:
 
 import Annotation
 import Core
+import Plot
 
 #Load probe annotations
 #Make sure config.ini is set to correct Illumina probe dataset.
@@ -16,12 +17,12 @@ annotations = Annotation.Annotator()
 #load and parse a single methylation file that might contain info for one or more sample.
 
 methyl_file = "EXAMPLE.txt"
-samples = Core.ParseFile(methyl_file)
+samples = Core.ParseFile(methyl_file).get_sample()
 
 #load and parse multiple methylation files
 
 methyl_directory = "Data/"
-samples = Core.ParseBatch(methyl_directory)
+samples = Core.ParseBatch(methyl_directory).get_all_samples()
 
 #get probes associated with a gene
 
@@ -34,7 +35,11 @@ print(probe_list)
 for sample in samples:
     print(sample.name)
     beta_values = sample.probes  # beta_values are loaded from each sample.
-    print(Core.get
+    print(Core.get)
+
+#plot probes that are assciated with p53 gene and save it as PNG image file.
+
+Plot.Heatmap(samples, probe_list, "p53_methylation.png")
 
 -----------------------------------------------------------------------------
 COMMAND LINE EXECUTABLES:
