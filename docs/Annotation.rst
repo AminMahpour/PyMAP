@@ -50,6 +50,12 @@ ChrLoc Class
 
 This object holds a chromosome interval used in genomics analysis.
 
+USAGE:
+
+.. code:: python
+
+    my_probe = Annotation.ChrLoc("X", 122333232, 123334444)
+
 
 Annotator Class
 ^^^^^^^^^^^^^^^
