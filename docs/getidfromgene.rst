@@ -12,5 +12,4 @@ getidfromgene.py generates a text file that contains probe ids associated with a
 
 Usage
 -----
-USAGE:
-    ./getidfromgene.py -gene TP53 -out y
+./getidfromgene.py -gene TP53 -out y
