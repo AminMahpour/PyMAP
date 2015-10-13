@@ -30,8 +30,6 @@ USAGE:
 
 ChrLoc
 ^^^^^^
-This object holds a chromosome interval used in genomics analysis.
-
 
 .. class:: ChrLoc(chr, start, end)
 
@@ -41,6 +39,8 @@ This object holds a chromosome interval used in genomics analysis.
    :param start: integer
    :param end: integer
    :rtype: A ChrLoc object.
+
+This object holds a chromosome interval used in genomics analysis.
 
 
 Annotator Class
