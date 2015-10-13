@@ -11,12 +11,18 @@ Probe Class
 ^^^^^^^^^^^
 This object will hold all probe information. The following information is currently supported.
 
-- *probe id:* This is Illumina probe id.
+- *probe id:* a **string** is Illumina probe id.
+- *seq:* a **string** holds the sequence associated with the probe.
+- *name:* a **string** that holds probe name.
+- *chr:* a **string** holds chromosome number.
+- *cord:* an **integer** holds the coordinate of probe.
+- *strand:* a **string** holds probe strand. either F or R.
+- *gene:* a **string** that holds Associated gene.
+- *refseq:* holds refseq info.
 
 .. code:: python
 
-    probe1 = Probe()
-    probe1.id = "cgxxxxxxxxx"
+    my_probe = Probe()
 
 
 Annotator Class
