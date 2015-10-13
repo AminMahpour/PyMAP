@@ -34,7 +34,7 @@ This object holds a chromosome interval used in genomics analysis.
 
 .. class:: ChrLoc(self, chr, start, end)
 
-   Format the exception with a traceback.
+   ChrLoc object holds genomic coordinates.
 
    :param chr: exception type
    :param start: exception value
