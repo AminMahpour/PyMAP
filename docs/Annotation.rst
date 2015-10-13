@@ -95,7 +95,7 @@ FUNCTIONS:
     :param probe_loc: Genomic Location.
     :return: a lst of probe ids.
 
-.. funtion:: get_probes_id_from_cpg(self, cpg_loc):
+.. function:: get_probes_id_from_cpg(self, cpg_loc):
 
     Get all probes associated with CpG sites.
 
