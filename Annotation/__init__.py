@@ -19,7 +19,7 @@ class Probe:
         self.tour = None
 
 
-class chr_loc:
+class ChrLoc:
     def __init__(self, chr, start, end):
         self.chr = chr
         self.start = start

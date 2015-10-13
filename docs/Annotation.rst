@@ -27,6 +27,22 @@ This object will hold all probe information. The following information is curren
     my_probe = Probe()
 
 
+ChrLoc
+^^^^^^
+This object holds a chromosome interval used in genomics analysis.
+
+
+.. class:: format_exception(etype, value, tb[, limit=None])
+
+   Format the exception with a traceback.
+
+   :param etype: exception type
+   :param value: exception value
+   :param tb: traceback object
+   :param limit: maximum number of stack frames to show
+   :type limit: integer or None
+   :rtype: list of strings
+
 Annotator Class
 ^^^^^^^^^^^^^^^
 This class *does* the majority of probe parsing work. It is required to have a **config.ini** in Data/ directory that point to the correct Illumina probe annotation dataset in CSV format. The data file can be downloaded from https://support.illumina.com/downloads.html .
