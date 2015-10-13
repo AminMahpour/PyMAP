@@ -1,10 +1,15 @@
-Annotation package
-==================
+Annotation module
+=================
 
-Module contents
----------------
+Introductions
+-------------
+This module parse Illumina probe information and allows probe filtering, search and etc..
 
-.. automodule:: Annotation
-    :members:
-    :undoc-members:
-    :show-inheritance:
+Contents
+--------
+
+Annotator
+^^^^^^^^^
+This class does the majority of work.
+
+
