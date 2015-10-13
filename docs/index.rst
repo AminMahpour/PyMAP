@@ -11,8 +11,7 @@ The following documentation are provided for this module.
 Contents:
 
 .. toctree::
-   :maxdepth: 4
-
+   :hidden:
    Annotation
    Core
    GUI
