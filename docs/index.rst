@@ -12,6 +12,7 @@ Contents:
 
 .. toctree::
    :numbered:
+
    Annotation
    Core
    GUI
