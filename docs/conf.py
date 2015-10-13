@@ -50,9 +50,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pyMAP'
-copyright = u'2015, Author'
-author = u'Author'
+project = u'PyMAP'
+copyright = u'2015, PyMAP Authors'
+author = u'PyMAP Authors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -226,8 +226,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'pyMAP.tex', u'pyMAP Documentation',
-   u'Author', 'manual'),
+  (master_doc, 'pyMAP.tex', u'PyMAP Documentation',
+   u'PyMap Authors', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
