@@ -10,6 +10,7 @@ Contents
 Probe Class
 ^^^^^^^^^^^
 This object will hold all probe information. The following information is currently supported.
+
 - *probe id:* This is Illumina probe id.
 
 Annotator Class
