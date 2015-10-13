@@ -33,7 +33,7 @@ ChrLoc
 This object holds a chromosome interval used in genomics analysis.
 
 
-.. class:: ChrLoc(self, chr, start, end)
+.. class:: ChrLoc(chr, start, end)
 
    ChrLoc object holds genomic coordinates.
 
@@ -45,7 +45,16 @@ This object holds a chromosome interval used in genomics analysis.
 
 Annotator Class
 ^^^^^^^^^^^^^^^
+
+.. class:: Annotator()
+
+    Creates an annotator object
+
+    :rtype: Returns an annotation object.
+
+
 This class *does* the majority of probe parsing work. It is required to have a **config.ini** in Data/ directory that point to the correct Illumina probe annotation dataset in CSV format. The data file can be downloaded from https://support.illumina.com/downloads.html .
+
 
 
 USAGE:
