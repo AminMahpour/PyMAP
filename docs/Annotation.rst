@@ -9,7 +9,7 @@ Contents
 --------
 Probe Class
 ^^^^^^^^^^^
-This object will hold all probe information. The following information is currently supported.
+This object will hold all probe information. The following proterties are currently supported.
 
 - *probe id:* a **string** is Illumina probe id.
 - *seq:* a **string** holds the sequence associated with the probe.
