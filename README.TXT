@@ -3,6 +3,7 @@ PYMAP PYTHON PACKAGE TO ANALYZE 450K METHYLATION DATA.
 ===========================================================================
 
 Example pipeline:
+-----------------------------------------
 #load submodules
 
 import Annotation
