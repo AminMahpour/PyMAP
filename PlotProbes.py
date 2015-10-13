@@ -27,7 +27,7 @@ annotations = Annotation.Annotator()
 probes = annotations.get_probes_from_gene(args["gene"])
 samples = Core.ParseFile(args["data"]).get_sample()
 
-Plot.Heatmap(samples, probes , args["out"])
+Plot.Heatmap(samples, probes, args["out"])
 
 if len(probes) == 0:
     print("Your gene did not return a valid probe id")

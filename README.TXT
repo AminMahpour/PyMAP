@@ -65,4 +65,4 @@ __________________________
 PlotProbe.py generates heatmap plot of probes that are associated with a gene.
 
 USAGE:
-    ./PlotProbes.py -gene TP53 -out out.png -data Data/GSE42308.txt
+    ./PlotProbes.py -gene TP53 -out out.png -data Data/methyl_data.txt

@@ -16,7 +16,6 @@ samples = Core.ParseFile(file).get_sample()
 #print(samples)
 
 
-
 #Core.Stats.Dist(parse.get_probes_avg(annotations.get_probes_id_from_loc(Annotation.Location.BODY)), [0, 1, 2, 3, 4, 5], parse.samples)
 probe_list = annotations.get_probes_from_gene("TP53")
 #prop = Plot.properties()
