@@ -78,6 +78,9 @@ USAGE:
     annotations = Annotation.Annotator()
 
 
+FUNCTIONS:
+
+
 .. function:: get_probes_id_from_gene(gene_name)
 
     Get a list of probe ids associated with a gene.
