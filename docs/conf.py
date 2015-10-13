@@ -54,6 +54,11 @@ project = u'PyMAP'
 copyright = u'2015, PyMAP Authors'
 author = u'PyMAP Authors'
 
+import Annotation
+import Core
+import Plot
+
+
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
