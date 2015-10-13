@@ -14,7 +14,6 @@ def check_file(filename):
     """
     return os.path.exists( os.path.abspath(filename))
 
-# USAGE : ./convertbed.py -file Data/GSE42308.txt -out gello.bed -gene DENR
 parser = argparse.ArgumentParser()
 parser.add_argument("-gene", help="Name of gene that probe id will be returned for")
 parser.add_argument("-out", help="get output with [y]")
