@@ -12,7 +12,7 @@ Probe Class
 
 .. class:: Probe()
 
-    Creates an Probe object
+    Creates a Probe object
 
     :rtype: Returns a probe object.
 
@@ -36,8 +36,8 @@ USAGE:
     my_probe = Annotation.Probe()
 
 
-ChrLoc
-^^^^^^
+ChrLoc Class
+^^^^^^^^^^^^
 
 .. class:: ChrLoc(chr, start, end)
 
