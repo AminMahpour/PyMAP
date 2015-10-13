@@ -10,11 +10,12 @@ Contents:
 
 .. toctree::
    :maxdepth: 4
-
+**Submodules**
    Annotation
    Core
    GUI
    Plot
+**Executables**
    PlotProbes
    convertbed
    getidfromgene
