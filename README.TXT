@@ -60,3 +60,9 @@ samplebed.py create multiple BED files that each represent a sample. the gene is
 
 USAGE:
     ./samplebed.py -file Data/GSE42308.txt -out Export/TP53 -gene TP53
+__________________________
+
+PlotProbe.py generates heatmap plot of probes that are associated with a gene.
+
+USAGE:
+    ./PlotProbes.py -gene TP53 -out out.png -data Data/GSE42308.txt
