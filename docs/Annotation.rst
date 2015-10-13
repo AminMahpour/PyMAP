@@ -86,5 +86,12 @@ FUNCTIONS:
     Get a list of probe ids associated with a gene.
 
     :param gene_name: Gene name string
-    :rtype: A list of probe ids.
+    :return: A list of probe ids.
+
+.. function:: get_probes_id_from_loc(probe_loc)
+
+    Get all probes associated with genomic locations.
+
+    :param probe_loc: Genomic Location.
+    :return: a lst of probe ids.
 
