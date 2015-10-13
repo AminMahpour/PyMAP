@@ -9,7 +9,15 @@ Contents
 --------
 Probe Class
 ^^^^^^^^^^^
-This object will hold all probe information. The following proterties are currently supported.
+
+.. class:: Probe()
+
+    Creates an Probe object
+
+    :rtype: Returns a probe object.
+
+
+This object will hold all probe information. The following properties are currently supported.
 
 - *probe id:* a **string** is Illumina probe id.
 - *seq:* a **string** holds the sequence associated with the probe.
