@@ -18,7 +18,7 @@ This object will hold all probe information. The following information is curren
 - *cord:* an **integer** holds the coordinate of probe.
 - *strand:* a **string** holds probe strand. either F or R.
 - *gene:* a **string** that holds Associated gene.
-- *refseq:* holds refseq info.
+- *refseq:* a **string** holds refseq info.
 
 .. code:: python
 
