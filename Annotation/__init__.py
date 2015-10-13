@@ -18,6 +18,7 @@ class Probe:
         self.beta = None
         self.tour = None
 
+
 class chr_loc:
     def __init__(self, chr, start, end):
         self.chr = chr
@@ -74,7 +75,7 @@ class Annotator:
                 new_probe.id = data[0]
                 new_probe.name = data[1]
                 new_probe.seq = data[13]
-                new_probe.chr = str( data[11])
+                new_probe.chr = str(data[11])
 
                 new_probe.cord = int(data[12])
                 new_probe.strand = data[16]
@@ -196,9 +197,10 @@ class Annotator:
         """
         chrom = chr_loc.chr
         start = int(chr_loc.start)
-        end= int(chr_loc.end)
+        end = int(chr_loc.end)
 
-        probes = {k: self.probe[k] for k in self.probe if self.probe[k].chr == chrom  and start < self.probe[k].cord < end}
+        probes = {k: self.probe[k] for k in self.probe if
+                  self.probe[k].chr == chrom and start < self.probe[k].cord < end}
         return probes
 
     def get_probes_id_from_chr_loc(self, chr_loc):
