@@ -7,9 +7,10 @@ Welcome to pyMAP's documentation!
 =================================
 
 Contents:
-**Submodules**
+
 .. toctree::
    :maxdepth: 4
+
    Annotation
    Core
    GUI
