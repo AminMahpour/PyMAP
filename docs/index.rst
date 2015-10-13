@@ -14,9 +14,6 @@ Contents:
    Core
    GUI
    Plot
-**Executables**
-.. toctree::
-   :maxdepth: 4
    PlotProbes
    convertbed
    getidfromgene
