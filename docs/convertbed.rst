@@ -9,6 +9,6 @@ About
 -----
 convertbed.py creates a BED file that contains all information about probes that are associated with a specified gene.
 
-USAGE
+Usage
 -----
 ./convertbed.py -file Data/METHYL_DATA.txt -out TP53.bed -gene TP53
