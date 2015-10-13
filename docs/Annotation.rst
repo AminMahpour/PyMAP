@@ -95,16 +95,37 @@ FUNCTIONS:
     :param probe_loc: Genomic Location.
     :return: a lst of probe ids.
 
-.. function:: get_probes_id_from_cpg(cpg_loc):
+.. function:: get_probes_id_from_cpg(cpg_loc)
 
     Get all probes associated with CpG sites.
 
     :param cpg_loc: CpG location
     :return: a lst of probe ids.
 
-.. function:: get_probes_id_from_probe(probe_list):
+.. function:: get_probes_id_from_probe(probe_list)
 
     Get all probes ids from a list of probe objects.
 
     :param probe_list: A list of probe ids.
     :return: a list of probe ids.
+
+.. function:: get_keys(dic_keys)
+
+    Get Probe id from probe dictionaries
+
+    :param dic_keys: Probe dict.
+    :return: returns a list of probe id.
+
+.. function:: get_probe(probe_id)
+
+    This function returns the info associated with an id.
+
+    :param probe_id: probe id
+    :return: a probe object.
+
+.. function:: get_probes(list_of_ids)
+
+    This function returns the info associated with an id.
+
+    :param list_of_ids: a probe id list
+    :return: a list of probe objects.

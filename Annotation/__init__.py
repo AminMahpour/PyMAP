@@ -157,7 +157,7 @@ class Annotator:
         """
         This function returns a list of probe object from a list of ids.
         :param list_of_ids:
-        :return:
+        :return: A list of probe objects.
         """
         out_list = []
         for probe_id in list_of_ids:
