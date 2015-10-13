@@ -14,6 +14,7 @@ This object will hold all probe information. The following information is curren
 - *probe id:* This is Illumina probe id.
 
 .. code:: python
+
     probe1 = Probe()
     probe1.id = "cgxxxxxxxxx"
 
