@@ -36,9 +36,9 @@ This object holds a chromosome interval used in genomics analysis.
 
    ChrLoc object holds genomic coordinates.
 
-   :param chr: exception type
-   :param start: exception value
-   :param end: traceback object
+   :param chr: string
+   :param start: integer
+   :param end: integer
    :rtype: A ChrLoc object.
 
 
