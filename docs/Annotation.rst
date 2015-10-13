@@ -13,8 +13,11 @@ This object will hold all probe information. The following information is curren
 
 - *probe id:* This is Illumina probe id.
 
+.. code:: python
+    probe1 = Probe()
+    probe1.id = "cgxxxxxxxxx"
+
+
 Annotator Class
 ^^^^^^^^^^^^^^^
 This class *does* the majority of probe parsing work. It is required to have a **config.ini** in Data/ directory that point to the correct Illumina probe annotation dataset in CSV format. The data file can be downloaded from https://support.illumina.com/downloads.html .
-
-.. autoclass:: Annotation
