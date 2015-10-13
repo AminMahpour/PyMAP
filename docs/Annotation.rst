@@ -8,8 +8,7 @@ This module parse Illumina probe information and allows probe filtering, search 
 Contents
 --------
 
-Annotator
-^^^^^^^^^
-This class does the majority of work.
-
+Annotator Class
+^^^^^^^^^^^^^^^
+This class *does* the majority of probe parsing work. It is required to have a **config.ini** in Data/ directory that point to the correct Illumina probe annotation dataset in CSV format.
 
