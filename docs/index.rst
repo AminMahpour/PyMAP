@@ -7,15 +7,16 @@ Welcome to pyMAP's documentation!
 =================================
 
 Contents:
-
+**Submodules**
 .. toctree::
    :maxdepth: 4
-**Submodules**
    Annotation
    Core
    GUI
    Plot
 **Executables**
+.. toctree::
+   :maxdepth: 4
    PlotProbes
    convertbed
    getidfromgene
