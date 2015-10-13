@@ -20,6 +20,8 @@ This object will hold all probe information. The following information is curren
 - *gene:* a **string** that holds Associated gene.
 - *refseq:* a **string** holds refseq info.
 
+* Create a new probe object:
+
 .. code:: python
 
     my_probe = Probe()
