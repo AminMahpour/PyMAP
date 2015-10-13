@@ -1,5 +1,5 @@
-getidfromgene module
-====================
+getidfromgene Executable
+========================
 
 .. automodule:: getidfromgene
     :members:

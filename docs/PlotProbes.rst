@@ -1,5 +1,5 @@
-PlotProbes module
-=================
+PlotProbes Executable
+=====================
 
 .. automodule:: PlotProbes
     :members:
