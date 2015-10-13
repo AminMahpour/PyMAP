@@ -35,7 +35,6 @@ print(probe_list)
 for sample in samples:
     print(sample.name)
     beta_values = sample.probes  # beta_values are loaded from each sample.
-    print(Core.get)
 
 #plot probes that are assciated with p53 gene and save it as PNG image file.
 
