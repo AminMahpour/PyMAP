@@ -6,7 +6,8 @@
 Welcome to pyMAP's documentation!
 =================================
 PyMAP is a python module that allows large-scale methylation analysis using Illumina 450k platform.
-The following modules and executables are provided in this module.
+The following documentation are provided for this module.
+
 Contents:
 
 .. toctree::
@@ -19,7 +20,6 @@ Contents:
    PlotProbes
    convertbed
    getidfromgene
-   pipeline_example
    samplebed
 
 
