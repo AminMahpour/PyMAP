@@ -102,11 +102,9 @@ FUNCTIONS:
     :param cpg_loc: CpG location
     :return: a lst of probe ids.
 
-.. function:: get_probes_id_from_probe(self, probe_list):
+.. function:: get_probes_id_from_probe(probe_list):
 
     Get all probes ids from a list of probe objects.
 
     :param probe_list: A list of probe ids.
     :return: a list of probe ids.
-
-    :return: self.get_keys(probe_list.keys())
