@@ -1,4 +1,3 @@
-__author__ = 'aminmahpour'
 
 import cairo
 
@@ -9,6 +8,9 @@ class properties:
 
 
 class Heatmap:
+    """
+    This class creates a heatmap object
+    """
     def __init__(self, samples, probes, file_name, properties=None):
 
         if properties is None:
@@ -87,6 +89,16 @@ class Heatmap:
 
     @staticmethod
     def block(ctx, x, y, size, intensity, nan=False):
+        """
+        create a singl block
+        :param ctx: cairo context
+        :param x: x-coordinate
+        :param y: y-coordinate
+        :param size: block size
+        :param intensity: color intensity
+        :param nan: null value
+        :return: Draws a block
+        """
         ctx.rectangle(x, y, size, size)
         if not nan:
             ctx.set_source_rgb(1, 1 - intensity, 1 - intensity)
