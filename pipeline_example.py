@@ -4,7 +4,13 @@ import Plot
 import Annotation
 
 annotation_file = "Data/HumanMethylation450_15017482_v1-2.csv"
+
 annotations = Annotation.Annotator()
+print (annotations.get_number())
+annotations.remove_snp_probes()
+print (annotations.get_number())
+
+
 #print( annotations.get_probes_id_from_chr_loc (Annotation.chr_loc("12",123234099,123242197)))
 
 

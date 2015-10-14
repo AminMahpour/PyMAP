@@ -19,6 +19,12 @@ class Probe:
         self.tour = None
 
 
+class SNP:
+    def __init__(self):
+        self.probeid = None
+        self.snpid = None
+
+
 class ChrLoc:
     def __init__(self, chr, start, end):
         self.chr = chr
@@ -76,7 +82,6 @@ class Annotator:
                 new_probe.name = data[1]
                 new_probe.seq = data[13]
                 new_probe.chr = str(data[11])
-
                 new_probe.cord = int(data[12])
                 new_probe.strand = data[16]
                 new_probe.gene = data[21].split(";")
@@ -85,6 +90,25 @@ class Annotator:
                 new_probe.tour = data[25]
                 newcpg = {new_probe.id: new_probe}
                 self.probe.update(newcpg)
+
+    def remove_snp_probes(self):
+        """
+        This function will removes all SNPs associated with probes.
+        :return: returns a new probe listing.
+        """
+        snp_list = []
+        snp_file = open("Data/humanmethylation450_dbsnp137.snpupdate.table.v2.sorted.txt", "r")
+        for line in snp_file:
+            if line.startswith("cg"):
+                line = line.strip("\n").strip("\r").split("\t")
+                new_snp = SNP()
+                new_snp.probeid = line[0]
+                new_snp.snpid = line[1]
+                snp_list.append(new_snp)
+
+        for snp in snp_list:
+            self.probe.pop(snp.probeid)
+
 
     def get_probes_all(self):
         """
@@ -211,3 +235,10 @@ class Annotator:
         """
         probes = self.get_probes_from_chr_loc(chr_loc)
         return self.get_keys(probes)
+
+    def get_number(self):
+        number  = 0
+        for probe_id in self.probe.iterkeys():
+            number +=1
+
+        return number
