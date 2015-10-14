@@ -217,3 +217,28 @@ def get_all_sample_name(samples):
     for i in samples:
         sample_list.append(i)
     return sample_list
+
+def write_data(file_name, samples, probes):
+    """
+    export data to data table
+    :param samples: A list of samples.
+    :param probes: A list of probes.
+    :return: Writes a data file.
+    """
+    output_file = open(file_name, mode="w")
+    output_file.write("Probes\t")
+
+    # Header information
+    for sample in samples:
+        output_file.write("%s\t" % sample.name)
+    output_file.write("\n")
+
+    # probe methlation info
+    for probe in probes:
+        output_file.write("%s\t" % probe.id)
+
+        for sample in samples:
+            output_file.write("%s\t" % sample.probes[probe.id])
+
+        output_file.write("\n")
+    output_file.close()
