@@ -86,7 +86,14 @@ class Annotator:
                 new_probe.strand = data[16]
                 new_probe.gene = data[21].split(";")
                 new_probe.refseq = data[22]
-                new_probe.loc = data[23].split(";")
+                locs = data[23].split(";")
+                list_locs = []
+                for i in locs:
+                    if i not in list_locs:
+                        list_locs.append(i)
+
+                new_probe.loc = list_locs
+
                 new_probe.tour = data[25]
                 newcpg = {new_probe.id: new_probe}
                 self.probe.update(newcpg)
@@ -109,7 +116,6 @@ class Annotator:
         for snp in snp_list:
             self.probe.pop(snp.probeid)
 
-
     def get_probes_all(self):
         """
         Get all probe ids.
@@ -117,9 +123,10 @@ class Annotator:
         """
         return self.probe
 
+
     def get_probes_id_from_gene(self, gene_name):
         """
-        Get all probes associated with a gene.
+        Get all probes ids associated with a gene.
         :param gene_name:
         :return: a lst of probe ids.
         """
@@ -128,7 +135,7 @@ class Annotator:
 
     def get_probes_id_from_loc(self, probe_loc):
         """
-        Get all probes associated with genomic locations.
+        Get all probes ids associated with genomic locations.
         :param probe_loc:
         :return: a lst of probe ids.
         """
@@ -137,12 +144,39 @@ class Annotator:
 
     def get_probes_id_from_cpg(self, cpg_loc):
         """
-        Get all probes associated with CpG sites.
+        Get all probes ids associated with CpG sites.
         :param cpg_loc:
         :return: a lst of probe ids.
         """
         probes = {k: self.probe[k] for k in self.probe if cpg_loc in self.probe[k].tour}
         return self.get_keys(probes.keys())
+
+    def get_probes_from_gene(self, probe_list, gene_name):
+        """
+        Get all probes associated with a gene.
+        :param gene_name:
+        :return: a lst of probe ids.
+        """
+        probes = {k: probe_list[k] for k in probe_list if gene_name in probe_list[k].gene}
+        return probes
+
+    def get_probes_from_loc(self,probe_list, probe_loc):
+        """
+        Get all probes associated with genomic locations.
+        :param probe_loc:
+        :return: a lst of probe ids.
+        """
+        probes = {k: probe_list[k] for k in probe_list if probe_loc in probe_list[k].loc}
+        return probes
+
+    def get_probes_from_cpg(self,probe_list, cpg_loc):
+        """
+        Get all probes associated with CpG sites.
+        :param cpg_loc:
+        :return: a lst of probe ids.
+        """
+        probes = {k: probe_list[k] for k in probe_list if cpg_loc in probe_list[k].tour}
+        return probes
 
     def get_probes_id_from_probe(self, probe_list):
         """
@@ -237,8 +271,29 @@ class Annotator:
         return self.get_keys(probes)
 
     def get_number(self):
+        """
+        Get numbers of probes
+        :return: returns an integer representing the number of probes.
+        """
         number  = 0
         for probe_id in self.probe.iterkeys():
             number +=1
 
         return number
+
+    def get_coord(self, probe):
+        """
+        Get genomic coordinate of a probe.
+        :param probe: A probe object
+        :return: An integer
+        """
+        return probe.cord
+
+    def sort_coord_probe(self, probes):
+        """
+
+        :param probes:
+        :return:
+        """
+        soreted_probes = sorted(probes,key=self.get_coord)
+        return soreted_probes

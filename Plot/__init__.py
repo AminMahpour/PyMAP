@@ -1,4 +1,5 @@
 
+
 import cairo
 
 
@@ -18,7 +19,7 @@ class Heatmap:
         else:
             block_size = properties.size
         w = 150 + len(probes) * block_size
-        h = 200 + len(samples) * block_size
+        h = 300 + len(samples) * block_size
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, w, h)
         ctx = cairo.Context(surface)
 
@@ -63,8 +64,25 @@ class Heatmap:
                     self.block(ctx, x, y, block_size, val, nan=nan)
 
                 x += block_size
-
             x = 10
+        x = 100 + block_size/2
+
+        y += 10
+        for probe in probes:
+            ctx.save()
+            ctx.set_source_rgb(0, 0, 0)
+            ctx.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+            ctx.set_font_size(10)
+            ctx.move_to(x + block_size / 2, y + block_size)
+            ctx.rotate(90)
+            for i in probe.loc:
+                ctx.show_text("%s " % i)
+
+            ctx.restore()
+            x += block_size
+
+            #x += 10
+        y=10
         x = 50
 
         y += block_size * 2

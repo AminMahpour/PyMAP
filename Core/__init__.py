@@ -218,6 +218,7 @@ def get_all_sample_name(samples):
         sample_list.append(i)
     return sample_list
 
+
 def write_data(file_name, samples, probes):
     """
     export data to data table
@@ -226,7 +227,7 @@ def write_data(file_name, samples, probes):
     :return: Writes a data file.
     """
     output_file = open(file_name, mode="w")
-    output_file.write("Probes\t")
+    output_file.write("Probe id\t")
 
     # Header information
     for sample in samples:

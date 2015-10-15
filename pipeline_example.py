@@ -19,11 +19,24 @@ print (annotations.get_number())
 
 file = "Data/GSE42308.txt"
 samples = Core.ParseFile(file).get_sample()
+
 #print(samples)
 
 
 #Core.Stats.Dist(parse.get_probes_avg(annotations.get_probes_id_from_loc(Annotation.Location.BODY)), [0, 1, 2, 3, 4, 5], parse.samples)
-probe_list = annotations.get_probes_from_gene("TP53")
+probe_list = annotations.get_probes_from_gene("BRCA1")
+
+print(len(probe_list))
+for i in probe_list:
+    print(i.cord)
+
+print("sort data...")
+probe_list = annotations.sort_coord_probe(probe_list)
+for i in probe_list:
+    print(i.cord)
+print(len(probe_list))
+
+Core.write_data("data.txt", samples, probe_list)
 #prop = Plot.properties()
 #prop.size=30
 Plot.Heatmap(samples, probe_list, "gello.png")

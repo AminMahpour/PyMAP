@@ -50,7 +50,7 @@ class Ttest(threading.Thread):
 
         if float(pval) < float(0.05):
             self.diff_id_list.append(self.probe)
-            print ("DOONEEE")
+            print ("DONE...")
 
 
 
@@ -64,8 +64,6 @@ class TopList:
         """
         self.samples1 = samples1
         self.samples2 = samples2
-
-
         self.diff_probe_id = []
         no_probe_processed = 0
         for probe in all_probes:
@@ -86,7 +84,7 @@ class TopList:
 
             #input()
 
-    def ttest(self,samples1, samples2, probe):
+    def ttest(self, samples1, samples2, probe):
         sample1_betas = []
         sample2_betas = []
 
