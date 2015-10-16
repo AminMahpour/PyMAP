@@ -148,7 +148,7 @@ class Annotator:
 
         Get all probe ids.
 
-        :return: a lst of probe ids.
+        :return: a list of probe ids.
 
         """
         return self.probe
@@ -339,8 +339,10 @@ class Annotator:
     def sort_coord_probe(self, probes):
         """
 
-        :param probes:
-        :return:
+        This function sorts probes based on the probe genomic location. Best used in combination with plotting module.
+
+        :param probes: Input probe list.
+        :return: Sorted probe list.
 
         """
         soreted_probes = sorted(probes,key=self.get_coord)
