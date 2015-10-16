@@ -27,6 +27,12 @@ class Probe:
 
 
 class SNP:
+    """
+
+    This class defines the SNPs in probes. Can be used to filter probes.
+
+
+    """
     def __init__(self):
         self.probeid = None
         self.snpid = None
@@ -78,6 +84,11 @@ class Annotator:
 
     This class parse all information about Illumina probes.
 
+    USAGE:
+
+.. code:: python
+
+    my_probe = Annotation.Annotator()
 
     """
 
