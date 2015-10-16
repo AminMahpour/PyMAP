@@ -10,7 +10,9 @@ class properties:
 
 class Heatmap:
     """
+
     This class creates a heatmap object
+
     """
     def __init__(self, samples, probes, file_name, properties=None):
 
@@ -108,7 +110,9 @@ class Heatmap:
     @staticmethod
     def block(ctx, x, y, size, intensity, nan=False):
         """
-        create a singl block
+
+        create a single block
+
         :param ctx: cairo context
         :param x: x-coordinate
         :param y: y-coordinate
@@ -116,6 +120,7 @@ class Heatmap:
         :param intensity: color intensity
         :param nan: null value
         :return: Draws a block
+
         """
         ctx.rectangle(x, y, size, size)
         if not nan:
