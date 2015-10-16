@@ -88,7 +88,7 @@ class Annotator:
 
 .. code:: python
 
-    my_probe = Annotation.Annotator()
+    annotations = Annotation.Annotator()
 
     """
 
