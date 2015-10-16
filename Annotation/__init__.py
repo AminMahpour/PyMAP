@@ -4,6 +4,13 @@ import os
 class Probe:
     """
     This class holds probe info.
+
+    USAGE:
+
+.. code:: python
+
+    my_probe = Annotation.Probe()
+
     """
 
     def __init__(self):
@@ -26,6 +33,17 @@ class SNP:
 
 
 class ChrLoc:
+    """
+
+    defines a chromosomal interval.
+
+    USAGE:
+
+.. code:: python
+
+    my_probe = Annotation.ChrLoc("X", 122333232, 123334444)
+
+    """
     def __init__(self, chr, start, end):
         self.chr = chr
         self.start = start
@@ -59,6 +77,7 @@ class Annotator:
     """
 
     This class parse all information about Illumina probes.
+
 
     """
 
