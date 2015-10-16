@@ -1,8 +1,5 @@
-Core package
-============
-
-Submodules
-----------
+Core Module
+===========
 
 Core.Stats module
 -----------------
