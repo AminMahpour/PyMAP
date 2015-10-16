@@ -57,7 +57,9 @@ class CpG_location:
 
 class Annotator:
     """
+
     This class parse all information about Illumina probes.
+
     """
 
     def __init__(self):
@@ -70,8 +72,11 @@ class Annotator:
 
     def __run__(self):
         """
+
         Run the annotation initial setup.
+
         :return:
+
         """
         for i in open(self.ann, mode="r"):
             if i.startswith("cg"):
@@ -100,8 +105,11 @@ class Annotator:
 
     def remove_snp_probes(self):
         """
+
         This function will removes all SNPs associated with probes.
+
         :return: returns a new probe listing.
+
         """
         snp_list = []
         snp_file = open("Data/humanmethylation450_dbsnp137.snpupdate.table.v2.sorted.txt", "r")
@@ -118,79 +126,72 @@ class Annotator:
 
     def get_probes_all(self):
         """
+
         Get all probe ids.
+
         :return: a lst of probe ids.
+
         """
         return self.probe
 
 
     def get_probes_id_from_gene(self, gene_name):
         """
+
         Get all probes ids associated with a gene.
+
         :param gene_name:
         :return: a lst of probe ids.
+
         """
         probes = {k: self.probe[k] for k in self.probe if gene_name in self.probe[k].gene}
         return self.get_keys(probes.keys())
 
     def get_probes_id_from_loc(self, probe_loc):
         """
+
         Get all probes ids associated with genomic locations.
+
         :param probe_loc:
         :return: a lst of probe ids.
+
         """
         probes = {k: self.probe[k] for k in self.probe if probe_loc in self.probe[k].loc}
         return self.get_keys(probes.keys())
 
     def get_probes_id_from_cpg(self, cpg_loc):
         """
+
         Get all probes ids associated with CpG sites.
+
         :param cpg_loc:
         :return: a lst of probe ids.
+
         """
         probes = {k: self.probe[k] for k in self.probe if cpg_loc in self.probe[k].tour}
         return self.get_keys(probes.keys())
 
-    def get_probes_from_gene(self, probe_list, gene_name):
-        """
-        Get all probes associated with a gene.
-        :param gene_name:
-        :return: a lst of probe ids.
-        """
-        probes = {k: probe_list[k] for k in probe_list if gene_name in probe_list[k].gene}
-        return probes
 
-    def get_probes_from_loc(self,probe_list, probe_loc):
-        """
-        Get all probes associated with genomic locations.
-        :param probe_loc:
-        :return: a lst of probe ids.
-        """
-        probes = {k: probe_list[k] for k in probe_list if probe_loc in probe_list[k].loc}
-        return probes
-
-    def get_probes_from_cpg(self,probe_list, cpg_loc):
-        """
-        Get all probes associated with CpG sites.
-        :param cpg_loc:
-        :return: a lst of probe ids.
-        """
-        probes = {k: probe_list[k] for k in probe_list if cpg_loc in probe_list[k].tour}
-        return probes
 
     def get_probes_id_from_probe(self, probe_list):
         """
+
         Get all probes ids from a list of probe objects.
+
         :param probe_list: A list of probe ids.
         :return: a list of probe ids.
+
         """
         return self.get_keys(probe_list.keys())
 
     def get_keys(self, dic_keys):
         """
+
         Get Probe id from probe dictionaries
+
         :param dic_keys: Probe dict.
         :return: returns a list of probe id.
+
         """
         l = []
         for i in dic_keys:
@@ -199,9 +200,12 @@ class Annotator:
 
     def get_probe(self, probe_id):
         """
+
         This function returns the info associated with an id.
+
         :param probe_id: ILLUMINA ID
         :return: all info
+
         """
 
         try:
@@ -213,9 +217,12 @@ class Annotator:
 
     def get_probes(self, list_of_ids):
         """
+
         This function returns a list of probe object from a list of ids.
+
         :param list_of_ids:
         :return: A list of probe objects.
+
         """
         out_list = []
         for probe_id in list_of_ids:
@@ -225,33 +232,45 @@ class Annotator:
 
     def get_probes_from_gene(self, gene_name):
         """
+
         Get a list probe objects from an associated gene name.
+
         :param gene_name: Gene name in string format
         :return:
+
         """
         return self.get_probes(self.get_probes_id_from_gene(gene_name))
 
     def get_probe_from_loc(self, loc):
         """
+
         Get a list probe objects from genomic location.
+
         :param loc: from Location object.
         :return:
+
         """
         return self.get_probes(self.get_probes_id_from_loc(loc))
 
     def get_probe_from_cpg(self, cpg_loc):
         """
+
         Get a list probe objects from cpg location.
+
         :param cpg_loc: from CpG object
         :return:
+
         """
         return self.get_probes(self.get_probe_from_cpg(cpg_loc))
 
     def get_probes_from_chr_loc(self, chr_loc):
         """
+
         Get a list of probes that are within a genomic region
+
         :param chr_loc: Genomic location interval
         :return:
+
         """
         chrom = chr_loc.chr
         start = int(chr_loc.start)
@@ -263,17 +282,23 @@ class Annotator:
 
     def get_probes_id_from_chr_loc(self, chr_loc):
         """
+
         Get a list of probe ids that are witihn a genomic region
+
         :param chr_loc: Genomic location interval
         :return:
+
         """
         probes = self.get_probes_from_chr_loc(chr_loc)
         return self.get_keys(probes)
 
     def get_number(self):
         """
+
         Get numbers of probes
+
         :return: returns an integer representing the number of probes.
+
         """
         number  = 0
         for probe_id in self.probe.iterkeys():
@@ -283,9 +308,12 @@ class Annotator:
 
     def get_coord(self, probe):
         """
+
         Get genomic coordinate of a probe.
+
         :param probe: A probe object
         :return: An integer
+
         """
         return probe.cord
 
@@ -294,6 +322,9 @@ class Annotator:
 
         :param probes:
         :return:
+
         """
         soreted_probes = sorted(probes,key=self.get_coord)
         return soreted_probes
+
+

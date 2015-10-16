@@ -129,3 +129,11 @@ FUNCTIONS:
 
     :param list_of_ids: a probe id list
     :return: a list of probe objects.
+
+Module contents
+---------------
+
+.. automodule:: Annotation
+    :members:
+    :undoc-members:
+    :show-inheritance:
