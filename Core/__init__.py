@@ -187,7 +187,9 @@ def probes_to_bed(filename, probes, sample):
 
 def get_sample_by_no(samples, sample_no):
     """
+
     Returns a sample by number [zero based].
+
     :param sample_no:
     :return:
     """
@@ -196,7 +198,9 @@ def get_sample_by_no(samples, sample_no):
 
 def get_sample_by_name(samples, sample_name):
     """
+
     Returns a sample by name.
+
     :param sample_name:
     :return:
     """
@@ -210,7 +214,9 @@ def get_sample_by_name(samples, sample_name):
 
 def get_all_sample_name(samples):
     """
+
     Get all sample name.
+
     :return: A list that contain sample names.
     """
     sample_list = []
@@ -221,7 +227,9 @@ def get_all_sample_name(samples):
 
 def write_data(file_name, samples, probes):
     """
+
     export data to data table
+
     :param samples: A list of samples.
     :param probes: A list of probes.
     :return: Writes a data file.
