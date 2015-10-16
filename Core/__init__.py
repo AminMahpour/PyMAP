@@ -82,16 +82,20 @@ class ParseFile:
 
 def get_id_beta(sample):
     """
+
     Get all beta values.
     :return:
+
     """
     return sample.probes
 
 
 def get_all_beta(sample):
     """
-    Get
+
+    Get all beta values.
     :return:
+
     """
     listx = []
     for key in sample.probes.keys():
@@ -102,9 +106,12 @@ def get_all_beta(sample):
 
 def get_probe_avg(probe_id, samples, verbose=False):
     """
+
     Get Probe AVG values.
+
     :param probe_id: A list of probe ids.
     :return: A list of avg beta values.
+
     """
     beta_val = []
     if verbose:
@@ -122,9 +129,12 @@ def get_probe_avg(probe_id, samples, verbose=False):
 
 def get_probes_avg(probe_id_list, sample):
     """
+
     Get probe AVG beta values from a list of probes for all samples
+
     :param probe_id_list: A list of probe ids.
     :return: A list of beta values.
+
     """
     out = []
 
@@ -138,11 +148,14 @@ def get_probes_avg(probe_id_list, sample):
 
 def samples_to_bed(base_filename, probes, samples):
     """
+
     Return a BED file representative of all samples for the provided probes.
+
     :param base_filename: A base name for output file
     :param probes: A list of probes objects.
     :param samples: A list of samples to extract data.
     :return:
+
     """
     for sample in samples:
         probes_to_bed("%s-%s.bed" % (base_filename, sample.name), probes, sample)
@@ -150,11 +163,14 @@ def samples_to_bed(base_filename, probes, samples):
 
 def probes_to_bed(filename, probes, sample):
     """
+
     Writes a BED file containing the probe beta info.
+
     :param filename: A filename to be stored.
     :param probes: A list of Probe info
     :param sample_no: The sample number to include in the BED file.
     :return:
+
     """
     # lets parse some probe here.
     out = open(filename, mode="w")
@@ -203,6 +219,7 @@ def get_sample_by_name(samples, sample_name):
 
     :param sample_name:
     :return:
+
     """
     selected_sample = None
     for i in samples:
@@ -218,6 +235,7 @@ def get_all_sample_name(samples):
     Get all sample name.
 
     :return: A list that contain sample names.
+
     """
     sample_list = []
     for i in samples:
@@ -233,6 +251,7 @@ def write_data(file_name, samples, probes):
     :param samples: A list of samples.
     :param probes: A list of probes.
     :return: Writes a data file.
+
     """
     output_file = open(file_name, mode="w")
     output_file.write("Probe id\t")
