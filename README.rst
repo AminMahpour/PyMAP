@@ -1,7 +1,7 @@
 
 PYMAP PYTHON PACKAGE TO ANALYZE 450K METHYLATION DATA.
 ======================================================
-PyMAP is a python package for efficient and fast analyzing of Illumina 450K methyilation data.
+PyMAP is a python package for efficient and fast analyzing of Illumina 450K methylation data.
 
 
 Example pipeline:
