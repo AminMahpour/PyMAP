@@ -1,8 +1,15 @@
 import cairo
 
 
-class properties:
+class Properties:
+    """
+
+    Defines the style of plot
+
+    """
+
     def __init__(self, size=20, xoff=20, yoff=100):
+
         self.size = size
         self.xoffset = xoff
         self.yoffset = yoff
@@ -15,7 +22,7 @@ class Heatmap:
 
     """
 
-    def __init__(self, samples, probes, file_name, properties=properties()):
+    def __init__(self, samples, probes, file_name, properties=Properties()):
 
         block_size = properties.size
 
