@@ -16,6 +16,13 @@ Examples
 --------
 Here goes an example of what pymap can do!
 
+..  code-block:: python
+    :linenos:
+
+   #Create Annotation object.
+   annotation = pymap.Annotation.Annotator()
+
+
 
 Citation and Contact
 --------------------
