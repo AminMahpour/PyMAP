@@ -24,7 +24,7 @@ class Probe:
         self.refseq = None
         self.beta = None
         self.tour = None
-
+        self.loc = None
 
 class SNP:
     """
@@ -60,6 +60,9 @@ class Location:
     """
     Probe location is defined here.
     """
+
+
+
     BODY = "Body"
     TSS200 = "TSS200"
     TSS1500 = "TSS1500"
@@ -72,12 +75,28 @@ class CpG_location:
     """
     CpG location is defined here.
     """
+
+
+
     ISLAND = "Island"
     NSHORE = "N_Shore"
     SSHORE = "S_Shore"
     NSHELF = "N_Shelf"
     SSHELF = "S_Shelf"
 
+class Feature:
+    def __init__(self, feature):
+        self.feature_title = None
+        self.feature = None
+        if feature in ["Body", "TSS200", "TSS1500", "5'UTR", "3'UTR", "Exon"]:
+            self.feature_title="Location"
+            self.feature = feature
+        elif feature in ["Island","N_Shore","S_Shore","N_Shelf","S_Shelf"]:
+            self.feature_title="cpg_loc"
+            self.feature = feature
+        else:
+            self.feature_title="gene"
+            self.feature = feature
 
 class Annotator:
     """
@@ -154,7 +173,7 @@ class Annotator:
         for snp in snp_list:
             self.probe.pop(snp.probeid)
 
-    def get_probes_all(self):
+    def get_all_probe_ids(self):
         """
 
         Get all probe ids.
@@ -163,7 +182,6 @@ class Annotator:
 
         """
         return self.probe
-
 
     def get_probes_id_from_gene(self, gene_name):
         """
@@ -259,6 +277,7 @@ class Annotator:
             out_list.append(self.get_probe(probe_id))
 
         return out_list
+
 
     def get_probes_from_gene(self, gene_name):
         """
@@ -358,5 +377,44 @@ class Annotator:
         """
         soreted_probes = sorted(probes,key=self.get_coord)
         return soreted_probes
+
+def get_probes(annotations, probes_ids):
+    """
+
+    Get a list of probes from probe ids
+
+    :param annotations: Annotation object that has been initiated properly.
+    :param probes_ids: A list of probe ids.
+    :return:
+    """
+    return annotations.get_probes(probes_ids)
+
+
+def get_probes_from_feature(probes_ids, filter_val):
+    """
+
+    This function returns filters probes based on a feature.
+
+    :param probes_ids: The probe ids that you would like to filter.
+    :param filter_val: Feature to be filtered.
+    :return: Returns a list of probes.
+
+    """
+    probes = probes_ids
+    out_probes = []
+    if filter_val.feature_title == "Location":
+        out_probes = [probe for probe in probes if filter_val.feature in probe.loc]
+        print("Location")
+        return out_probes
+    elif filter_val.feature_title == "cpg_loc":
+        print("CPG")
+        out_probes = [probe for probe in probes if filter_val.feature in probe.tour]
+        return out_probes
+    elif filter_val.feature_title == "gene":
+        out_probes = [probe for probe in probes if filter_val.feature in probe.gene]
+        return out_probes
+    elif type(filter_val) == type(None):
+        return None
+
 
 
