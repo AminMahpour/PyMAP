@@ -19,8 +19,8 @@ Here goes an example of what pymap can do!
 ..  code-block:: python
     :linenos:
 
-   #Create Annotation object.
-   annotation = pymap.Annotation.Annotator()
+    #Create Annotation object.
+    annotation = pymap.Annotation.Annotator()
 
 
 
