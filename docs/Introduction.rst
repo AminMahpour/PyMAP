@@ -55,7 +55,7 @@ In the second example, we parse samples:
     # Get Sample data from either one or multiple files. samples contains a list of samples. Please see sample object documentations.
     samples = parsed_samples.get_samples()
 
-In the third example, we integrate Core and Annotation objects to extract methylation data:
+In the third example, we integrate Core and Annotation objects to extract methylation data from p53 gene probes:
 
 ..  code-block:: python
     :linenos:
@@ -67,8 +67,11 @@ In the third example, we integrate Core and Annotation objects to extract methyl
     pymap.Core.write_data("data.txt", samples, probe_list)
 
     # Export probe and methylation data into BED file format.
+    # In this example we export data for the first sample (sample[0]).
     pymap.Core.probes_to_bed("Export/test2.bed", probe_list, samples[0])
 
+    # Export all samples into separate BED file.
+    pymap.Core.samples_to_bed("Export/me", probe_list, samples)
 
 
 Citation and Contact
