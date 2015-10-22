@@ -1,7 +1,22 @@
 Introduction
 ============
 
-Why pyMAP
----------
-This is a very interesting question that desevered to be answered. All 450K platform analysis software are made with R. pyMAP offers a more powerful alternative which utilizes python script.
-Python is a very popular scripting language among scientists and is becoming even more popular.
+Why pyMAP?
+----------
+This is a very interesting question that desevered to be answered properly. All 450K platform analysis software are made with R.
+While we think R is a power statistical platform, we also believe python, which is a powerful language can also be used for these analysis.
+pyMAP offers a more powerful alternative which utilizes python scripts and can also be modified further.
+
+Documentation
+-------------
+
+Here we have provided detailed documentation on Class and functions in this module.
+
+Examples
+--------
+Here goes an example of what pymap can do!
+
+
+Citation and Contact
+--------------------
+Please cite this package with the Github URL until it is published. Please contact authors using Gitub platform.
