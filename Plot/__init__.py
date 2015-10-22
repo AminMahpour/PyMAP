@@ -2,7 +2,7 @@ import cairo
 
 
 class properties:
-    def __init__(self, size=20, xoff=0, yoff=0):
+    def __init__(self, size=20, xoff=20, yoff=100):
         self.size = size
         self.xoffset = xoff
         self.yoffset = yoff

@@ -90,6 +90,30 @@ In the fourth example, we extract features from features.
     # Get probes that are positioned close to BRCA1.
     probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
 
+In the following example we generate a heatmap of probes that are associated with BRCA1 gene.
+
+..  code-block:: python
+    :linenos:
+
+
+    # Get probes that are positioned close to BRCA1.
+    probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
+
+    # Sort probes based on genomic coordinate.
+    probe_list = annotations.sort_coord_probe(probe_list)
+
+    # Import plot package.
+    import pymap.Plot
+
+    # Generate heatmap
+    Plot.Heatmap(samples, probe_list, "BRCA1_probes.png")
+
+
+**Output heatmap image**
+
+.. image:: images/brca1.png
+
+
 
 Citation and Contact
 --------------------
