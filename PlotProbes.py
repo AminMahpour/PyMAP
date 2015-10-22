@@ -25,7 +25,7 @@ args = vars(parser.parse_args())
 
 annotations = Annotation.Annotator()
 probes = annotations.get_probes_from_gene(args["gene"])
-samples = Core.ParseFile(args["data"]).get_sample()
+samples = Core.ParseFile(args["data"]).get_samples()
 
 Plot.Heatmap(samples, probes, args["out"])
 

@@ -30,7 +30,7 @@ if check_file( file) :
     parse = Core.ParseFile(file)
     probe_list = annotations.get_probes_from_gene( args["gene"])
 
-    Core.samples_to_bed(out, probe_list, parse.samples)
+    Core.samples_to_bed(out, probe_list, parse.get_samples())
     print("Done.")
 
 else:
