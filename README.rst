@@ -7,8 +7,7 @@ PyMAP is a python package for efficient and fast analyzing of Illumina 450K meth
 Example pipeline:
 -----------------
 
-..  code-block:: python
-    :linenos:
+..
 
     #load submodules
 
@@ -55,6 +54,7 @@ Example pipeline:
     #plot probes that are assciated with p53 gene and save it as PNG image file.
 
     Plot.Heatmap(samples, probe_list, "p53_methylation.png")
+
 
 
 COMMAND LINE EXECUTABLES:

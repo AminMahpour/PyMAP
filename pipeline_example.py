@@ -23,6 +23,7 @@ print(len(probe2))
 probe3 = Annotation.get_probes_from_feature(probe2, Annotation.Feature("BRCA1"))
 print(len(probe3))
 
+brcaprobes = annotations.get_probes(annotations.get_probes_id_from_gene("BRCA1"))
 
 # probe_list = annotations.get_probes_from_gene("TP53")
 
@@ -35,9 +36,10 @@ print(len(probe3))
 # sort data
 # probe_list = annotations.sort_coord_probe(probe_list)
 
-
 # Core.write_data("data.txt", samples, probe_list)
-# Plot.Heatmap(samples, probe_list, "gello.png")
+
+Plot.Heatmap(samples, brcaprobes, "brca1.png")
+Plot.Heatmap(samples, probe3, "brca2.png")
 
 # pp.plot(samples[0].probes, samples[1].probes)
 
