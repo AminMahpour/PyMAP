@@ -16,7 +16,6 @@ Contents:
    Introduction
    Annotation
    Core
-   GUI
    Plot
    PlotProbes
    convertbed
