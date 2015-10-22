@@ -2,7 +2,7 @@ import cairo
 
 
 class properties:
-    def __init__(self, size = 20, xoff = 0 , yoff= 0):
+    def __init__(self, size=20, xoff=0, yoff=0):
         self.size = size
         self.xoffset = xoff
         self.yoffset = yoff
@@ -14,15 +14,13 @@ class Heatmap:
     This class creates a heatmap object
 
     """
-    def __init__(self, samples, probes, file_name, properties = properties()):
 
+    def __init__(self, samples, probes, file_name, properties=properties()):
 
         block_size = properties.size
 
-
         w = 150 + len(probes) * block_size
         h = 300 + len(samples) * block_size
-
 
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, w, h)
         ctx = cairo.Context(surface)
@@ -32,8 +30,8 @@ class Heatmap:
         ctx.set_source_rgb(1, 1, 1)
         ctx.fill()
 
-        x = properties.xoffset#10
-        y = properties.yoffset#100
+        x = properties.xoffset  # 10
+        y = properties.yoffset  # 100
 
         x += 90 + block_size / 2
         for probe in probes:
@@ -69,7 +67,7 @@ class Heatmap:
 
                 x += block_size
             x = properties.xoffset
-        x = 100 + block_size/2
+        x = 100 + block_size / 2
 
         y += 10
         for probe in probes:
@@ -85,8 +83,8 @@ class Heatmap:
             ctx.restore()
             x += block_size
 
-            #x += 10
-        y=10
+            # x += 10
+        y = 10
         x = 50
 
         y += block_size * 2

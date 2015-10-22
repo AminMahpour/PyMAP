@@ -26,6 +26,7 @@ class Probe:
         self.tour = None
         self.loc = None
 
+
 class SNP:
     """
 
@@ -33,6 +34,7 @@ class SNP:
 
 
     """
+
     def __init__(self):
         self.probeid = None
         self.snpid = None
@@ -50,8 +52,9 @@ class ChrLoc:
     my_probe = Annotation.ChrLoc("X", 122333232, 123334444)
 
     """
-    def __init__(self, chr, start, end):
-        self.chr = chr
+
+    def __init__(self, chromosome, start, end):
+        self.chr = chromosome
         self.start = start
         self.end = end
 
@@ -60,8 +63,6 @@ class Location:
     """
     Probe location is defined here.
     """
-
-
 
     BODY = "Body"
     TSS200 = "TSS200"
@@ -82,6 +83,7 @@ class CpG_location:
     NSHELF = "N_Shelf"
     SSHELF = "S_Shelf"
 
+
 class Feature:
     """
 
@@ -94,14 +96,15 @@ class Feature:
         self.feature_title = None
         self.feature = None
         if feature in ["Body", "TSS200", "TSS1500", "5'UTR", "3'UTR", "Exon"]:
-            self.feature_title="Location"
+            self.feature_title = "Location"
             self.feature = feature
-        elif feature in ["Island","N_Shore","S_Shore","N_Shelf","S_Shelf"]:
-            self.feature_title="cpg_loc"
+        elif feature in ["Island", "N_Shore", "S_Shore", "N_Shelf", "S_Shelf"]:
+            self.feature_title = "cpg_loc"
             self.feature = feature
         else:
-            self.feature_title="gene"
+            self.feature_title = "gene"
             self.feature = feature
+
 
 class Annotator:
     """
@@ -224,8 +227,6 @@ class Annotator:
         probes = {k: self.probe[k] for k in self.probe if cpg_loc in self.probe[k].tour}
         return self.get_keys(probes.keys())
 
-
-
     def get_probes_id_from_probe(self, probe_list):
         """
 
@@ -282,7 +283,6 @@ class Annotator:
             out_list.append(self.get_probe(probe_id))
 
         return out_list
-
 
     def get_probes_from_gene(self, gene_name):
         """
@@ -354,9 +354,9 @@ class Annotator:
         :return: returns an integer representing the number of probes.
 
         """
-        number  = 0
+        number = 0
         for probe_id in self.probe.iterkeys():
-            number +=1
+            number += 1
 
         return number
 
@@ -380,8 +380,9 @@ class Annotator:
         :return: Sorted probe list.
 
         """
-        soreted_probes = sorted(probes,key=self.get_coord)
+        soreted_probes = sorted(probes, key=self.get_coord)
         return soreted_probes
+
 
 def get_probes(annotations, probes_ids):
     """
@@ -419,8 +420,5 @@ def get_probes_from_feature(probes_ids, filter_val):
     elif filter_val.feature_title == "gene":
         out_probes = [probe for probe in probes if filter_val.feature in probe.gene]
         return out_probes
-    elif type(filter_val) == type(None):
+    elif filter_val is None:
         return None
-
-
-

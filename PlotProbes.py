@@ -13,7 +13,8 @@ def check_file(filename):
     :param filename: filename to check.
     :return:
     """
-    return os.path.exists( os.path.abspath(filename))
+    return os.path.exists(os.path.abspath(filename))
+
 
 # USAGE : ./convertbed.py -file Data/GSE42308.txt -out gello.bed -gene DENR
 parser = argparse.ArgumentParser()
