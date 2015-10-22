@@ -73,6 +73,23 @@ In the third example, we integrate Core and Annotation objects to extract methyl
     # Export all samples into separate BED file.
     pymap.Core.samples_to_bed("Export/me", probe_list, samples)
 
+In the four example, we extract features from features.
+
+..  code-block:: python
+    :linenos:
+
+    # Get probes from all probe id function of annotation object.
+    probes = annotations.get_probes(annotations.get_all_probe_ids())
+
+    # Get probes that are positioned in the island.
+    probe_list = Annotation.get_probes_from_feature(probes, Annotation.Feature(Annotation.CpG_location.ISLAND))
+
+    # Get probes that are within 200 bp of TSS.
+    probe_list = Annotation.get_probes_from_feature(probes, Annotation.Feature(Annotation.Location.TSS200)
+
+    # Get probes that are positioned close to BRCA1.
+    probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
+
 
 Citation and Contact
 --------------------
