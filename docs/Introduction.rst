@@ -10,7 +10,7 @@ pyMAP, implemented in native python, offers a more powerful alternative which ut
 Documentation
 -------------
 
-Here we have provided detailed documentation on Class and functions in this module.
+Here we have provided detailed documentation on Classes and Functions in this module.
 
 Examples
 --------
@@ -19,9 +19,14 @@ Here goes an example of what pymap can do!
 ..  code-block:: python
     :linenos:
 
-    #Create Annotation object.
+    # Create Annotation object. This object well parse through all probes annotation information Illumina has provided for probes used in 450K platform.
     annotation = pymap.Annotation.Annotator()
 
+    # Get number of probes in the annotation object.
+    probe_number = annotation.get_number()
+
+    # Remove known SNPs easily. This filteration might be useful for most studies in human subjects.
+    SNP_filtered = annotation.remove_SNP_probes()
 
 
 Citation and Contact
