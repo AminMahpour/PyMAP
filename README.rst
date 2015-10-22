@@ -6,6 +6,10 @@ PyMAP is a python package for efficient and fast analyzing of Illumina 450K meth
 
 Example pipeline:
 -----------------
+
+..  code-block:: python
+    :linenos:
+
     #load submodules
 
     import Annotation
