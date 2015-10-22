@@ -76,8 +76,6 @@ class CpG_location:
     CpG location is defined here.
     """
 
-
-
     ISLAND = "Island"
     NSHORE = "N_Shore"
     SSHORE = "S_Shore"
@@ -85,6 +83,13 @@ class CpG_location:
     SSHELF = "S_Shelf"
 
 class Feature:
+    """
+
+    This class parse features associated with probes.
+
+
+    """
+
     def __init__(self, feature):
         self.feature_title = None
         self.feature = None
@@ -385,7 +390,8 @@ def get_probes(annotations, probes_ids):
 
     :param annotations: Annotation object that has been initiated properly.
     :param probes_ids: A list of probe ids.
-    :return:
+    :return: A list of probes.
+
     """
     return annotations.get_probes(probes_ids)
 
