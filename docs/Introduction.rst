@@ -24,10 +24,14 @@ Here goes an example of what pymap can do!
 
     # Get number of probes in the annotation object.
     probe_number = annotation.get_number()
+    print(probe_number)
 
-    # Remove known SNPs easily. This filteration might be useful for most studies in human subjects.
-    SNP_filtered = annotation.remove_SNP_probes()
+    # Remove known SNPs easily with a simple method. This filteration step might be useful for most studies in human subjects.
+    annotation.remove_snp_probes()
 
+    # Get number of probes after SNP removal from the annotation object.
+    probe_number = annotation.get_number()
+    print(probe_number)
 
 Citation and Contact
 --------------------
