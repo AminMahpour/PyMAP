@@ -3,9 +3,9 @@ Introduction
 
 Why pyMAP?
 ----------
-This is a very interesting question that desevered to be answered properly. All 450K platform analysis software are made with R.
-While we think R is a power statistical platform, we also believe python, which is a powerful language can also be used for these analysis.
-pyMAP offers a more powerful alternative which utilizes python scripts and can also be modified further.
+This is a very interesting question that desevered to be answered properly. All 450K platform analysis software developed so far are made using R.
+While we think R is a power statistical platform, we also believe in diversity of analysis platforms. Python, which is a powerful language can also be used for these analysis.
+pyMAP, implemented in native python, offers a more powerful alternative which utilizes python scripts and can also be modified further.
 
 Documentation
 -------------
