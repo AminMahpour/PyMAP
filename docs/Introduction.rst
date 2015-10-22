@@ -38,7 +38,7 @@ In the first example, we will create an annotation object that you can use to ex
     probe_number = annotation.get_number()
     print(probe_number)
 
-In the second example, we parse samples.
+In the second example, we parse samples:
 
 ..  code-block:: python
     :linenos:
@@ -52,12 +52,22 @@ In the second example, we parse samples.
     # Parse multiple data file.
     parsed_samples = Core.ParseBatch("/Data")
 
-    # Get Sample data from either one or multiple files.
+    # Get Sample data from either one or multiple files. samples contains a list of samples. Please see sample object documentations.
     samples = parsed_samples.get_samples()
 
+In the third example, we integrate Core and Annotation objects to extract methylation data:
 
+..  code-block:: python
+    :linenos:
 
+    # Get all probes associated with p53 gene:
+    probe_list = annotations.get_probes_from_gene("TP53")
 
+    # Export data associated with selected probes and samples into a data frame:
+    pymap.Core.write_data("data.txt", samples, probe_list)
+
+    # Export probe and methylation data into BED file format.
+    pymap.Core.probes_to_bed("Export/test2.bed", probe_list, samples[0])
 
 
 
