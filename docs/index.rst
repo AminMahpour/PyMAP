@@ -13,6 +13,7 @@ Contents:
 .. toctree::
    :numbered:
 
+   Introduction
    Annotation
    Core
    GUI
