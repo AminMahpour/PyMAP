@@ -1,5 +1,3 @@
-
-
 import cairo
 
 
@@ -8,6 +6,7 @@ class properties:
         self.size = size
         self.xoffset = xoff
         self.yoffset = yoff
+
 
 class Heatmap:
     """

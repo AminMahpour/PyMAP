@@ -76,4 +76,4 @@ In the third example, we integrate Core and Annotation objects to extract methyl
 
 Citation and Contact
 --------------------
-Please cite this package with the Github URL until it is published. Please contact authors using Gitub platform.
+Please cite this package with the Github URL until it is published. Please contact authors using Gitub platform for any inquiry.
