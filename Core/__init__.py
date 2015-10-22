@@ -84,7 +84,7 @@ def get_id_beta(sample):
     """
 
     Get all beta values.
-    :return:
+    :return: return beta values of a sample.
 
     """
     return sample.probes
@@ -94,7 +94,7 @@ def get_all_beta(sample):
     """
 
     Get all beta values.
-    :return:
+    :return: A list of beta
 
     """
     listx = []
@@ -154,7 +154,7 @@ def samples_to_bed(base_filename, probes, samples):
     :param base_filename: A base name for output file
     :param probes: A list of probes objects.
     :param samples: A list of samples to extract data.
-    :return:
+    :return: Static function - stores a file.
 
     """
     for sample in samples:
@@ -169,7 +169,7 @@ def probes_to_bed(filename, probes, sample):
     :param filename: A filename to be stored.
     :param probes: A list of Probe info
     :param sample_no: The sample number to include in the BED file.
-    :return:
+    :return: Static function - stores a file.
 
     """
     # lets parse some probe here.
@@ -206,8 +206,9 @@ def get_sample_by_no(samples, sample_no):
 
     Returns a sample by number [zero based].
 
-    :param sample_no:
-    :return:
+    :param sample_no: Sample number, a zero based integer.
+    :return: Return a sample object.
+
     """
     return samples[sample_no]
 
@@ -217,8 +218,8 @@ def get_sample_by_name(samples, sample_name):
 
     Returns a sample by name.
 
-    :param sample_name:
-    :return:
+    :param sample_name: Sample name, a string.
+    :return: Return a sample object.
 
     """
     selected_sample = None
@@ -246,11 +247,11 @@ def get_all_sample_name(samples):
 def write_data(file_name, samples, probes):
     """
 
-    export data to data table
+    Export data to data table
 
     :param samples: A list of samples.
     :param probes: A list of probes.
-    :return: Writes a data file.
+    :return: Writes a data file.E
 
     """
     output_file = open(file_name, mode="w")
