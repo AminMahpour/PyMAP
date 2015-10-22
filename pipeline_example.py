@@ -11,7 +11,7 @@ print ("probe No after SNP removal:", annotations.get_number())
 
 
 file = "Data/GSE42308.txt"
-samples = Core.ParseFile(file).get_sample()
+samples = Core.ParseFile(file).get_samples()
 
 #samples2 = Core.ParseBatch("Data/").get_all_samples()
 

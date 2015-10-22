@@ -21,6 +21,7 @@ In the first example, we will create an annotation object that you can use to ex
 ..  code-block:: python
     :linenos:
 
+    # Import Annotation submodule to parse and prepare probe information.
     import pymap.Annotation
 
     # Create Annotation object. This object well parse through all probes annotation information Illumina has provided for probes used in 450K platform.
@@ -36,6 +37,28 @@ In the first example, we will create an annotation object that you can use to ex
     # Get number of probes after SNP removal from the annotation object.
     probe_number = annotation.get_number()
     print(probe_number)
+
+In the second example, we parse samples.
+..  code-block:: python
+    :linenos:
+
+    # Import Core submodule to parse data.
+    import pymap.Core
+
+    # Parse a single data file.
+    parsed_samples = Core.ParseFile("data.txt")
+
+    # Parse multiple data file.
+    parsed_samples = Core.ParseBatch("/Data")
+
+    # Get Sample data from either one or multiple files.
+    samples = parsed_samples.get_samples()
+
+
+
+
+
+
 
 Citation and Contact
 --------------------

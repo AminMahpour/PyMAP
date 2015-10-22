@@ -30,7 +30,7 @@ class ParseBatch:
         for i in self.samples:
             print(i.name)
 
-    def get_all_samples(self):
+    def get_samples(self):
         """
         Return all sample objects created from all files
         """
@@ -71,7 +71,7 @@ class ParseFile:
             samples_file.probes = betas
             self.samples.append(samples_file)
 
-    def get_sample(self):
+    def get_samples(self):
         """
         Returns all samples in this file.
         """
