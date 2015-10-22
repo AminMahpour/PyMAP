@@ -16,8 +16,12 @@ Examples
 --------
 Here goes an example of what pymap can do!
 
+In the first example, we will create an annotation object that you can use to extract methylation values form samples. This object will hold Illumina probe information.
+
 ..  code-block:: python
     :linenos:
+
+    import pymap.Annotation
 
     # Create Annotation object. This object well parse through all probes annotation information Illumina has provided for probes used in 450K platform.
     annotation = pymap.Annotation.Annotator()
