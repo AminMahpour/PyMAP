@@ -7,6 +7,11 @@ class ParseConfig:
 
 
 class Sample:
+    """
+
+    Sample data object. Each sample has a name which is a string type and Probe methylation data which is a dictionary type.
+
+    """
     def __init__(self):
         self.name = None
         self.probes = None
@@ -84,6 +89,7 @@ def get_id_beta(sample):
     """
 
     Get all beta values.
+
     :return: return beta values of a sample.
 
     """
@@ -94,6 +100,7 @@ def get_all_beta(sample):
     """
 
     Get all beta values.
+
     :return: A list of beta
 
     """

@@ -4,7 +4,7 @@ import matplotlib.pyplot as pp
 class Properties:
     """
 
-    Defines the style of plot
+    Defines the style of Heatmap plots
 
     """
 
@@ -118,7 +118,7 @@ class Heatmap:
     def block(ctx, x, y, size, intensity, nan=False):
         """
 
-        create a single block
+        Create a single block. Used by Heatmap class.
 
         :param ctx: cairo context
         :param x: x-coordinate
