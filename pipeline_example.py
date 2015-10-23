@@ -23,6 +23,9 @@ print(len(probe2))
 probe3 = Annotation.get_probes_from_feature(probe2, Annotation.Feature("BRCA1"))
 print(len(probe3))
 
+print(probe2)
+Plot.boxplot(probe2,samples)
+
 brcaprobes = annotations.get_probes(annotations.get_probes_id_from_gene("BRCA1"))
 
 # probe_list = annotations.get_probes_from_gene("TP53")

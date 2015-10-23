@@ -1,5 +1,5 @@
 import cairo
-
+import matplotlib.pyplot as pp
 
 class Properties:
     """
@@ -140,3 +140,28 @@ class Heatmap:
         ctx.set_source_rgb(0, 0, 0)
         ctx.set_line_width(1)
         ctx.stroke()
+
+
+class boxplot:
+
+    def __init__(self, probe_list, samples):
+        self.probe_list = probe_list
+        self.samples = samples
+
+        data = []
+        for sample in samples:
+
+            sample_data = []
+            for probe in self.probe_list:
+                try:
+                    sample_data.append(sample.probes[probe.id])
+
+                except Exception as ex:
+                    pass
+
+            data.append(sample_data)
+
+
+        samples_name = [sample.name for sample in samples]
+        pp.boxplot(data, labels= samples_name)
+        pp.show()

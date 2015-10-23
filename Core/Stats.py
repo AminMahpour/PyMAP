@@ -17,15 +17,6 @@ class Dist:
         pp.boxplot(fl, labels=[i.name for i in lab])
         pp.show()
 
-class Plot:
-    def __init__(self, samples, beta_list):
-        no = list(range(0, len(samples)))
-        print(no)
-        print(len(beta_list))
-        pp.boxplot(beta_list, labels=samples)
-        # pp.xticks(samples)
-        pp.show()
-
 class Ttest(threading.Thread):
     def __init__(self,sample1, sample2, probe, diff_id_list):
             threading.Thread.__init__(self)
