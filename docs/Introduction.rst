@@ -10,7 +10,9 @@ pyMAP, implemented in native python, offers a more powerful alternative which ut
 Documentation
 -------------
 
-Here we have provided detailed documentation on Classes and Functions in this module.
+Here we have provided detailed documentation on Classes and Functions of this module.
+Documentations are mostly based on a single dataset that used throughout the example for consistency.
+The dataset used can be downloaded from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42308 .
 
 Examples
 --------
