@@ -244,6 +244,27 @@ def get_all_sample_name(samples):
     return sample_list
 
 
+def get_genes_from_probes(probe_list):
+    """
+
+    Get gene names and number of probes associated with each gene.
+
+    :param probe_list: A list of probes
+    :return: A dictionary of genes names and probes numbers
+
+    """
+
+    gene_dict = {}
+    for probe in probe_list:
+
+        if probe.gene in gene_dict:
+            gene_dict[probe.gene] += 1
+        else:
+            gene_dict.update({probe.gene: 1})
+
+    return gene_dict
+
+
 def write_data(file_name, samples, probes):
     """
 
