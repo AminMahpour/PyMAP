@@ -2,6 +2,7 @@
 PYMAP PYTHON PACKAGE TO ANALYZE 450K METHYLATION DATA.
 ======================================================
 PyMAP is a python package for efficient and fast analyzing of Illumina 450K methylation data.
+This package is available under GNU version 2 license agreement. Please contact `mahpour[at-sign]outlook.com` for support.
 
 Examples and Documentations
 ===========================
