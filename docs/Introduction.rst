@@ -10,7 +10,7 @@ pyMAP, implemented in native python, offers a more powerful alternative which ut
 Documentation
 -------------
 
-Here we have provided detailed documentation on Classes and Functions of this module.
+Here we have provided detailed documentations of Classes and Functions of this particular module.
 Documentations are mostly based on a single dataset that used throughout the example for consistency.
 The dataset used can be downloaded from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42308 .
 
@@ -115,6 +115,24 @@ In the following example we generate a heatmap of probes that are associated wit
 
 .. image:: images/brca1.png
 
+
+The following example will generate boxplot figure of probes that are associated with BRCA1.
+
+..  code-block:: python
+    :linenos:
+
+    # import the plotting module.
+    import Plot
+
+    # Get probes that are positioned close to BRCA1.
+    probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
+
+    # Plot the probe methylation values.
+    Plot.boxplot(brcaprobes,samples)
+
+**Output boxplot image**
+
+.. image:: images/boxplot.png
 
 
 Citation and Contact
