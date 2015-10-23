@@ -6,9 +6,13 @@ class Properties:
 
     Defines the style of Heatmap plots
 
-    """
+    *size* defines the block size.
+    *xoff* defines x offset.
+    *yoff* defines y offset.
 
+    """
     def __init__(self, size=20, xoff=20, yoff=100):
+
 
         self.size = size
         self.xoffset = xoff

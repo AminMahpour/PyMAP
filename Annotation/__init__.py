@@ -132,7 +132,7 @@ class Annotator:
 
         Run the annotation initial setup.
 
-        :return:
+        :return: nothing. A static function.
 
         """
         for i in open(self.ann, mode="r"):
@@ -209,7 +209,7 @@ class Annotator:
         Get all probes ids associated with genomic locations.
 
         :param probe_loc:
-        :return: a lst of probe ids.
+        :return: a list of probe ids.
 
         """
         probes = {k: self.probe[k] for k in self.probe if probe_loc in self.probe[k].loc}
@@ -221,7 +221,7 @@ class Annotator:
         Get all probes ids associated with CpG sites.
 
         :param cpg_loc:
-        :return: a lst of probe ids.
+        :return: a list of probe ids.
 
         """
         probes = {k: self.probe[k] for k in self.probe if cpg_loc in self.probe[k].tour}
@@ -290,7 +290,7 @@ class Annotator:
         Get a list probe objects from an associated gene name.
 
         :param gene_name: Gene name in string format
-        :return:
+        :return: A probe.
 
         """
         return self.get_probes(self.get_probes_id_from_gene(gene_name))
@@ -301,7 +301,7 @@ class Annotator:
         Get a list probe objects from genomic location.
 
         :param loc: from Location object.
-        :return:
+        :return: A probe.
 
         """
         return self.get_probes(self.get_probes_id_from_loc(loc))
@@ -312,7 +312,7 @@ class Annotator:
         Get a list probe objects from cpg location.
 
         :param cpg_loc: from CpG object
-        :return:
+        :return: A probe.
 
         """
         return self.get_probes(self.get_probe_from_cpg(cpg_loc))
@@ -323,7 +323,7 @@ class Annotator:
         Get a list of probes that are within a genomic region
 
         :param chr_loc: Genomic location interval
-        :return:
+        :return: A list of probes.
 
         """
         chrom = chr_loc.chr
@@ -340,7 +340,7 @@ class Annotator:
         Get a list of probe ids that are witihn a genomic region
 
         :param chr_loc: Genomic location interval
-        :return:
+        :return: A list of probe ids.
 
         """
         probes = self.get_probes_from_chr_loc(chr_loc)
