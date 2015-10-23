@@ -122,13 +122,13 @@ The following example will generate boxplot figure of probes that are associated
     :linenos:
 
     # import the plotting module.
-    import Plot
+    import pymap.Plot
 
     # Get probes that are positioned close to BRCA1.
     probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
 
     # Plot the probe methylation values.
-    Plot.boxplot(brcaprobes,samples)
+    Plot.boxplot(probe_list, samples)
 
 **Output boxplot image**
 
