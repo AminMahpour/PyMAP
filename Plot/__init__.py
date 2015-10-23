@@ -143,8 +143,22 @@ class Heatmap:
 
 
 class boxplot:
+    """
+
+    Box plot class creates a boxplot figure from probes and samples.
+
+    """
 
     def __init__(self, probe_list, samples):
+        """
+
+        Create a new boxplot.
+
+        :param probe_list: A list of probes.
+        :param samples: A list of samples.
+        :return:
+
+        """
         self.probe_list = probe_list
         self.samples = samples
 
