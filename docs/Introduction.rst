@@ -90,10 +90,12 @@ In the fourth example, we extract features from features.
     probes = annotations.get_probes(annotations.get_all_probe_ids())
 
     # Get probes that are positioned in the island.
-    probe_list = Annotation.get_probes_from_feature(probes, Annotation.Feature(Annotation.CpG_location.ISLAND))
+    probe_list = Annotation.get_probes_from_feature(probes,
+    Annotation.Feature(Annotation.CpG_location.ISLAND))
 
     # Get probes that are within 200 bp of TSS.
-    probe_list = Annotation.get_probes_from_feature(probes, Annotation.Feature(Annotation.Location.TSS200)
+    probe_list = Annotation.get_probes_from_feature(probes,
+    Annotation.Feature(Annotation.Location.TSS200)
 
     # Get probes that are positioned close to BRCA1.
     probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
@@ -143,4 +145,5 @@ The following example will generate boxplot figure of probes that are associated
 
 Citation and Contact
 --------------------
-Please cite this package with the Github URL until it is published. Please contact authors using Gitub platform for any inquiry.
+Please cite this package with the Github URL until it is published.
+Please contact authors using Gitub platform for any inquiry.
