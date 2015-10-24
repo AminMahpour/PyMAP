@@ -1,5 +1,5 @@
-Annotation contents
--------------------
+Annotation module
+=================
 
 .. automodule:: Annotation
     :members:

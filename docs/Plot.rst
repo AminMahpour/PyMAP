@@ -1,7 +1,9 @@
-Plot package
-------------
+Plot module
+===========
+
 
 .. automodule:: Plot
    :members:
-
+   :undoc-members:
+   :show-inheritance:
 
