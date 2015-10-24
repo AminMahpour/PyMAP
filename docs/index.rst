@@ -11,7 +11,7 @@ The following documentation are provided for this module.
 Contents:
 
 .. toctree::
-   :numbered:
+   :maxdepth: 2
 
    Introduction
    Annotation
