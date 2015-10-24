@@ -12,7 +12,8 @@ def check_file(filename):
     :param filename: filename to check.
     :return:
     """
-    return os.path.exists( os.path.abspath(filename))
+    return os.path.exists(os.path.abspath(filename))
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-gene", help="Name of gene that probe id will be returned for")
@@ -23,7 +24,6 @@ args = vars(parser.parse_args())
 annotations = Annotation.Annotator()
 probes = annotations.get_probes_from_gene(args["gene"])
 
-
 for i in probes:
     print(i.id)
 
@@ -32,7 +32,6 @@ if args["out"] == "y" or args["out"] == "Y":
     for i in probes:
         out_file.write("%s\n" % i.id)
     out_file.close()
-
 
 if len(probes) == 0:
     print("Your gene did not return a valid probe id")

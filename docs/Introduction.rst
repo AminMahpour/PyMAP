@@ -124,7 +124,7 @@ In the following example we generate a heatmap of probes that are associated wit
 .. image:: images/brca1.png
 
 
-The following example will generate boxplot figure of probes that are associated with BRCA1.
+The following example will generate BoxPlot figure of probes that are associated with BRCA1.
 
 ..  code-block:: python
     :linenos:
@@ -136,11 +136,11 @@ The following example will generate boxplot figure of probes that are associated
     probe_list = Annotation.get_probes_from_feature(probes, "BRCA1"))
 
     # Plot the probe methylation values.
-    Plot.boxplot(probe_list, samples)
+    Plot.BoxPlot(probe_list, samples)
 
-**Output boxplot image**
+**Output BoxPlot image**
 
-.. image:: images/boxplot.png
+.. image:: images/BoxPlot.png
 
 
 Citation and Contact

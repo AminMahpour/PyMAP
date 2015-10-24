@@ -1,6 +1,7 @@
 import cairo
 import matplotlib.pyplot as pp
 
+
 class Properties:
     """
 
@@ -11,9 +12,8 @@ class Properties:
     *yoff* defines y offset.
 
     """
+
     def __init__(self, size=20, xoff=20, yoff=100):
-
-
         self.size = size
         self.xoffset = xoff
         self.yoffset = yoff
@@ -146,17 +146,17 @@ class Heatmap:
         ctx.stroke()
 
 
-class boxplot:
+class BoxPlot:
     """
 
-    Box plot class creates a boxplot figure from probes and samples.
+    Box plot class creates a BoxPlot figure from probes and samples.
 
     """
 
     def __init__(self, probe_list, samples):
         """
 
-        Create a new boxplot.
+        Create a new BoxPlot.
 
         :param probe_list: A list of probes.
         :param samples: A list of samples.
@@ -179,7 +179,6 @@ class boxplot:
 
             data.append(sample_data)
 
-
         samples_name = [sample.name for sample in samples]
-        pp.boxplot(data, labels= samples_name)
+        pp.boxplot(data, labels=samples_name)
         pp.show()
