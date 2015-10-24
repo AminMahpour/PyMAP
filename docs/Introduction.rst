@@ -140,7 +140,7 @@ The following example will generate BoxPlot figure of probes that are associated
 
 **Output BoxPlot image**
 
-.. image:: images/BoxPlot.png
+.. image:: images/boxplot.png
 
 
 Citation and Contact
