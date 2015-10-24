@@ -295,27 +295,27 @@ class Annotator:
         """
         return self.get_probes(self.get_probes_id_from_gene(gene_name))
 
-    def get_probe_from_loc(self, loc):
+    def get_probes_from_loc(self, loc):
         """
 
         Get a list probe objects from genomic location.
 
         :param loc: from Location object.
-        :return: A probe.
+        :return: probes.
 
         """
         return self.get_probes(self.get_probes_id_from_loc(loc))
 
-    def get_probe_from_cpg(self, cpg_loc):
+    def get_probes_from_cpg(self, cpg_loc):
         """
 
         Get a list probe objects from cpg location.
 
         :param cpg_loc: from CpG object
-        :return: A probe.
+        :return: probes.
 
         """
-        return self.get_probes(self.get_probe_from_cpg(cpg_loc))
+        return self.get_probes(self.get_probes_from_cpg(cpg_loc))
 
     def get_probes_from_chr_loc(self, chr_loc):
         """
@@ -351,7 +351,7 @@ class Annotator:
 
         Get numbers of probes
 
-        :return: returns an integer representing the number of probes.
+        :return: An integer representing the number of probes.
 
         """
         number = 0
@@ -366,7 +366,7 @@ class Annotator:
         Get genomic coordinate of a probe.
 
         :param probe: A probe object
-        :return: An integer
+        :return: An integer indicator of probe numbers
 
         """
         return probe.cord
@@ -377,7 +377,7 @@ class Annotator:
         This function sorts probes based on the probe genomic location. Best used in combination with plotting module.
 
         :param probes: Input probe list.
-        :return: Sorted probe list.
+        :return: A sorted probe list.
 
         """
         soreted_probes = sorted(probes, key=self.get_coord)

@@ -5,16 +5,17 @@ Why pyMAP?
 ----------
 This is a very interesting question that deserves to be answered properly.
 All 450K platform analysis software developed so far are made using R scripts.
-While we think R is a power statistical platform, we also believe in diversity of analysis platforms.
-Python, which is a powerful language can also be used for these analysis.
+While we appreciate R as a powerful statistical platform, we also believe in diversity of different analysis platforms.
+Python, which is a simple yet powerful language, can also be used for these analysis.
+This language is increasingly being used by scientists to address computational aspect of their work.
 pyMAP, implemented in native python, offers a more powerful alternative which utilizes python scripts that can be deployed easily and can also be modified to suit the study.
 
 Documentation
 -------------
 
-Here we have provided detailed documentations of Classes and Functions of this particular module.
-Documentations are mostly based on a single dataset that used throughout the example for consistency.
-The dataset used can be downloaded from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42308 .
+Here, we have provided detailed documentations of Classes and Functions of PyMAP module.
+Documentations are mostly based on a single dataset that are used throughout the examples for consistency in data structures.
+The dataset is publicly available and can be downloaded from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42308 .
 
 Examples
 --------

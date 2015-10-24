@@ -19,7 +19,9 @@ class Sample:
 
 class ParseBatch:
     """
+
     Parse a series of data in a folder.
+
     """
 
     def __init__(self, folder, delim="\t"):
@@ -37,14 +39,18 @@ class ParseBatch:
 
     def get_samples(self):
         """
+
         Return all sample objects created from all files
+
         """
         return self.samples
 
 
 class ParseFile:
     """
-    Parse a single file.
+
+    Parse a single file. The file could still have multiple samples. This module automatically finds and parses them.
+
     """
 
     def __init__(self, filename, delim="\t"):
@@ -78,7 +84,9 @@ class ParseFile:
 
     def get_samples(self):
         """
+
         Returns all samples in this file.
+
         """
         return self.samples
 
@@ -174,7 +182,7 @@ def probes_to_bed(filename, probes, sample):
     Writes a BED file containing the probe beta info.
 
     :param filename: A filename to be stored.
-    :param probes: A list of Probe info
+    :param probes: A list of Probe info.
     :param sample_no: The sample number to include in the BED file.
     :return: Static function - stores a file.
 
@@ -256,8 +264,8 @@ def get_genes_from_probes(probe_list):
 
     Get gene names and number of probes associated with each gene.
 
-    :param probe_list: A list of probes
-    :return: A dictionary of genes names and probes numbers
+    :param probe_list: A list of probes.
+    :return: A dictionary of genes names and probes numbers.
 
     """
 
@@ -279,7 +287,7 @@ def write_data(file_name, samples, probes):
 
     :param samples: A list of samples.
     :param probes: A list of probes.
-    :return: Writes a data file.E
+    :return: Writes a data file.
 
     """
     output_file = open(file_name, mode="w")
