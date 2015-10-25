@@ -30,7 +30,7 @@ class ParseBatch:
         self.delim = delim
         for file in os.listdir(os.path.abspath(self.folder)):
             if file.endswith(".txt"):
-                parsed_file = ParseFile(os.path.abspath(os.path.join(self.folder, file))).get_sample()
+                parsed_file = ParseFile(os.path.abspath(os.path.join(self.folder, file))).get_samples()
                 self.samples.extend(parsed_file)
 
         print("%d samples processed." % len(self.samples))

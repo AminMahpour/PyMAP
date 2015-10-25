@@ -19,7 +19,7 @@ The dataset is publicly available and can be downloaded from http://www.ncbi.nlm
 
 Examples
 --------
-Here goes an example of what pymap can do!
+Here goes examples of what PyMAP can do!
 
 In the first example, we will create an annotation object that you can use to extract methylation values form samples.
 This object will hold Illumina probe information.
