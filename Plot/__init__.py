@@ -24,6 +24,13 @@ class Heatmap:
 
     This class creates a heatmap object
 
+    :param probes: A list of probes.
+    :param samples: A list of samples.
+    :param file_name: output filename.
+    :param properties: An instance of Properties class `[optional]`.
+
+    :return: writes a PNG image onto disk.
+
     """
 
     def __init__(self, samples, probes, file_name, properties=Properties()):
