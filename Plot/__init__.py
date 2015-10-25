@@ -151,6 +151,14 @@ class BoxPlot:
 
     Box plot class creates a BoxPlot figure from probes and samples.
 
+
+    :param probe_list: A list of probes.
+    :param samples: A list of samples.
+    :param filename: output filename.
+    :param imgtype: output image format.
+
+    :return: writes an image onto disk.
+
     """
 
     def __init__(self, probe_list, samples, filename="boxplot", imgtype="png"):
