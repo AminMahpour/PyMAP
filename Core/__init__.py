@@ -9,7 +9,12 @@ class ParseConfig:
 class Sample:
     """
 
-    Sample data object. Each sample has a name which is a string type and Probe methylation data which is a dictionary type.
+    Sample data object.
+    Each *sample* has a name which is a string type and Probe methylation data which is a dictionary type.
+
+    **name** : Name of the sample.
+
+    **probes** : methylation data of the sample - in dict type.
 
     """
     def __init__(self):
