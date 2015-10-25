@@ -18,15 +18,13 @@ samples = Core.ParseFile(file).get_samples()
 probes = annotations.get_probes(annotations.get_all_probe_ids())
 print(len(probes))
 print (Annotation.Feature(Annotation.CpG_location.ISLAND).feature_title)
-probe2 = Annotation.get_probes_from_feature(probes, Annotation.Feature(Annotation.CpG_location.NSHORE))
+probe2 = Annotation.get_probes_from_feature(probes, Annotation.Feature(Annotation.CpG_location.ISLAND))
 print(len(probe2))
 probe3 = Annotation.get_probes_from_feature(probe2, Annotation.Feature("BRCA1"))
 print(len(probe3))
 
-print(probe2)
-
 brcaprobes = annotations.get_probes(annotations.get_probes_id_from_gene("BRCA1"))
-
+#samples= [samples[0], samples[3]]
 Plot.BoxPlot(brcaprobes, samples)
 
 # probe_list = annotations.get_probes_from_gene("TP53")

@@ -153,7 +153,7 @@ class BoxPlot:
 
     """
 
-    def __init__(self, probe_list, samples):
+    def __init__(self, probe_list, samples, filename="boxplot", imgtype="png"):
         """
 
         Create a new BoxPlot.
@@ -180,5 +180,21 @@ class BoxPlot:
             data.append(sample_data)
 
         samples_name = [sample.name for sample in samples]
-        pp.boxplot(data, labels=samples_name)
-        pp.show()
+
+        fig, ax1 = pp.subplots(figsize=(10,6))
+        fig.canvas.set_window_title("Sample methylation boxplot")
+        ax1.set_axisbelow(True)
+
+
+        ax1.set_ylabel("Beta value")
+        ax1.set_xlabel("Sample")
+        ax1.yaxis.grid(True, linestyle="-", which= "major", color="lightgrey", alpha=0.5)
+        bp= pp.boxplot(data, labels=samples_name, notch=0, sym="+", vert=1, whis=1.5)
+        pp.xticks(fontsize=8)
+        pp.setp(bp["boxes"], color = "royalblue")
+        pp.setp(bp["whiskers"], color = "black")
+        pp.setp(bp["fliers"], color = "red", marker="+")
+        ax1.set_ylim(-.5, 1.5)
+
+        #pp.show()
+        pp.savefig("%s.%s" % (filename, imgtype))
