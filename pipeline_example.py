@@ -24,7 +24,7 @@ print(len(probe3))
 
 brcaprobes = annotations.get_probes(annotations.get_probes_id_from_gene("BRCA1"))
 #samples= [samples[0], samples[3]]
-Plot.BoxPlot(probes, samples)
+Plot.BoxPlot(brcaprobes, samples)
 
 # probe_list = annotations.get_probes_from_gene("TP53")
 
