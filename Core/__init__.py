@@ -24,13 +24,19 @@ class ParseBatch:
 
     """
 
-    def __init__(self, folder, delim="\t"):
+    def __init__(self, folder, delim="\t", avg_beta_header=".AVG_Beta"):
         self.folder = folder
         self.samples = []
         self.delim = delim
+        self.avg_header = avg_beta_header
         for file in os.listdir(os.path.abspath(self.folder)):
             if file.endswith(".txt"):
-                parsed_file = ParseFile(os.path.abspath(os.path.join(self.folder, file))).get_samples()
+
+                # Parse file.
+
+                parsed_file = ParseFile(os.path.abspath(os.path.join(self.folder, file)), delim=self.delim,
+                                        avg_beta_header=self.avg_header).get_samples()
+
                 self.samples.extend(parsed_file)
 
         print("%d samples processed." % len(self.samples))
@@ -53,7 +59,7 @@ class ParseFile:
 
     """
 
-    def __init__(self, filename, delim="\t"):
+    def __init__(self, filename, delim="\t", avg_beta_header=".AVG_Beta"):
         self.delim = delim
         name_cols = []
         avg_cols = []
@@ -63,8 +69,8 @@ class ParseFile:
             if line.startswith("TargetID"):
                 cols = line.strip("\n").strip("\r").split(self.delim)
                 for i, col in enumerate(cols):
-                    if col.endswith(".AVG_Beta"):
-                        name_cols.append(col.strip(".AVG_Beta"))
+                    if col.endswith(avg_beta_header):
+                        name_cols.append(col.strip(avg_beta_header))
                         avg_cols.append(i)
                 beta_vals = []
                 for i in avg_cols:
