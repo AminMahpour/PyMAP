@@ -4,11 +4,13 @@ Introduction
 Why pyMAP?
 ----------
 This is a very interesting question that deserves to be answered properly.
-All 450K platform analysis software developed so far are made using R scripts.
+All 450K platform analysis software that have been developed so far are made using R scripts.
 While we appreciate R as a powerful statistical platform, we also believe in diversity of different analysis platforms.
 Python, which is a simple yet powerful language, can also be used for these analysis.
-This language is increasingly being used by scientists to address computational aspect of their work.
+This language is increasingly being used by scientists to address computational aspect of their works.
 pyMAP, implemented in native python, offers a more powerful alternative which utilizes python scripts that can be deployed easily and can also be modified to suit the study.
+
+The purpose of this package is to make analysis and visualization of methylation data easier for ordinary scientists.
 
 Documentation
 -------------
