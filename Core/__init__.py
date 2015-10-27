@@ -81,26 +81,42 @@ class ParseFile:
         avg_cols = []
         beta_vals = []
         self.samples = []
-        for line in open(filename, mode="r"):
-            if line.startswith("TargetID"):
-                cols = line.strip("\n").strip("\r").split(self.delim)
-                for i, col in enumerate(cols):
-                    if col.endswith(avg_beta_header):
-                        name_cols.append(col.strip(avg_beta_header))
-                        avg_cols.append(i)
-                beta_vals = []
-                for i in avg_cols:
-                    beta_vals.append({})
-            if line.startswith("cg"):
-                cols = line.strip("\n").strip("\r").split(self.delim)
-                for i, avg_col in enumerate(avg_cols):
-                    average = cols[avg_col].strip()
-                    if average is not None and average != "":
-                        average = float(average)
-                        beta_vals[i].update({cols[0]: average})
-        for i, betas in enumerate(beta_vals):
-            samples_file = Sample(name=name_cols[i], probes= betas)
-            self.samples.append(samples_file)
+
+        # Check weather the file exists.
+
+        if self.check_file(filename):
+
+            # Open the file and parse the content.
+
+            for line in open(filename, mode="r"):
+
+                # Parse a single file content.
+
+                if line.startswith("TargetID"):
+                    cols = line.strip("\n").strip("\r").split(self.delim)
+                    for i, col in enumerate(cols):
+                        if col.endswith(avg_beta_header):
+                            name_cols.append(col.strip(avg_beta_header))
+                            avg_cols.append(i)
+                    beta_vals = []
+                    for i in avg_cols:
+                        beta_vals.append({})
+                if line.startswith("cg"):
+                    cols = line.strip("\n").strip("\r").split(self.delim)
+                    for i, avg_col in enumerate(avg_cols):
+                        average = cols[avg_col].strip()
+                        if average is not None and average != "":
+                            average = float(average)
+                            beta_vals[i].update({cols[0]: average})
+
+            # Create Samples.
+
+            for i, betas in enumerate(beta_vals):
+                samples_file = Sample(name=name_cols[i], probes= betas)
+                self.samples.append(samples_file)
+
+        else:
+            print("Critical Error: File not found.")
 
     def get_samples(self):
         """
@@ -110,8 +126,17 @@ class ParseFile:
         """
         return self.samples
 
+    def check_file(self, filename):
+        """
 
-########
+        Check input filename
+
+        :param filename: A string that represents a data file.
+        :return: A boolean value.
+
+        """
+        return os.path.isfile(os.path.abspath(filename))
+
 
 def get_id_beta(sample):
     """
