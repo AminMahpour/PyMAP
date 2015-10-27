@@ -27,6 +27,12 @@ class ParseBatch:
 
     Parse a series of data in a folder.
 
+    :param folder: A string that represent a folder.
+    :param delim: delimitation character used in the data file [default = tab].
+    :param avg_beta_header: A string that represents average beta values [default = .AVG_Beta].
+    :return: A ParseBatch object. Use get_samples() function to retrieve sample information.
+
+
     """
 
     def __init__(self, folder, delim="\t", avg_beta_header=".AVG_Beta"):
@@ -62,9 +68,15 @@ class ParseFile:
 
     Parse a single file. The file could still have multiple samples. This module automatically finds and parses them.
 
+    :param filename: A string that represent a data file name.
+    :param delim: delimitation character used in the data file [default = tab].
+    :param avg_beta_header: A string that represents average beta values [default = .AVG_Beta].
+    :return: A ParseBatch object. Use get_samples() function to retrieve sample information.
+
     """
 
     def __init__(self, filename, delim="\t", avg_beta_header=".AVG_Beta"):
+
         self.delim = delim
         name_cols = []
         avg_cols = []
