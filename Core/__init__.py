@@ -71,7 +71,7 @@ class ParseFile:
     :param filename: A string that represent a data file name.
     :param delim: delimitation character used in the data file [default = tab].
     :param avg_beta_header: A string that represents average beta values [default = .AVG_Beta].
-    :return: A ParseBatch object. Use get_samples() function to retrieve sample information.
+    :return: A ParseFile object. Use get_samples() function to retrieve sample information.
 
     """
 
