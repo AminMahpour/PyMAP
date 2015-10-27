@@ -16,9 +16,9 @@ class Sample:
     :param probes: methylation data of the sample - in dict type.
 
     """
-    def __init__(self, name=None, probes = None):
-        self.name = None
-        self.probes = None
+    def __init__(self, name=None, probes=None):
+        self.name = name
+        self.probes = probes
 
 
 class ParseBatch:

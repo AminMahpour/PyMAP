@@ -71,6 +71,7 @@ class Heatmap:
             ctx.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
             ctx.set_font_size(10)
             ctx.move_to(x, y + block_size / 2)
+            print(sample.name)
             ctx.show_text(sample.name)
             x += 100
             for probe in probes:
