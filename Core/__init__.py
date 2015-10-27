@@ -12,12 +12,11 @@ class Sample:
     Sample data object.
     Each *sample* has a name which is a string type and Probe methylation data which is a dictionary type.
 
-    **name** : Name of the sample.
-
-    **probes** : methylation data of the sample - in dict type.
+    :param name: Name of the sample.
+    :param probes: methylation data of the sample - in dict type.
 
     """
-    def __init__(self):
+    def __init__(self, name=None, probes = None):
         self.name = None
         self.probes = None
 
@@ -100,9 +99,7 @@ class ParseFile:
                         average = float(average)
                         beta_vals[i].update({cols[0]: average})
         for i, betas in enumerate(beta_vals):
-            samples_file = Sample()
-            samples_file.name = name_cols[i]
-            samples_file.probes = betas
+            samples_file = Sample(name=name_cols[i], probes= betas)
             self.samples.append(samples_file)
 
     def get_samples(self):
