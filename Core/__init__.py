@@ -6,6 +6,20 @@ class ParseConfig:
         self.cutoff = None
 
 
+class Group:
+    """
+
+    Create a new Group groups.
+
+    :param list_of_samples: A list of sample objects.
+    :return: A Group object.
+
+    """
+
+    def __init__(self, list_of_samples):
+        self.samples = list_of_samples
+
+
 class Sample:
     """
 
@@ -14,6 +28,7 @@ class Sample:
 
     :param name: Name of the sample.
     :param probes: methylation data of the sample - in dict type.
+    :return: A Sample object.
 
     """
     def __init__(self, name=None, probes=None):
@@ -49,7 +64,7 @@ class ParseBatch:
 
                 self.samples.extend(parsed_file)
 
-        print("%d samples processed." % len(self.samples))
+        print("%d groups processed." % len(self.samples))
         for i in self.samples:
             print(i.name)
 
@@ -65,7 +80,7 @@ class ParseBatch:
 class ParseFile:
     """
 
-    Parse a single file. The file could still have multiple samples. This module automatically finds and parses them.
+    Parse a single file. The file could still have multiple groups. This module automatically finds and parses them.
 
     :param filename: A string that represent a data file name.
     :param delim: delimitation character used in the data file [default = tab].
@@ -121,7 +136,7 @@ class ParseFile:
     def get_samples(self):
         """
 
-        Returns all samples in this file.
+        Returns all groups in this file.
 
         """
         if len(self.samples) != 0:
@@ -193,7 +208,7 @@ def get_probe_avg(probe_id, samples, verbose=False):
 def get_probes_avg(probe_id_list, sample):
     """
 
-    Get probe AVG beta values from a list of probes for all samples
+    Get probe AVG beta values from a list of probes for all groups
 
     :param probe_id_list: A list of probe ids.
     :return: A list of beta values.
@@ -212,11 +227,11 @@ def get_probes_avg(probe_id_list, sample):
 def samples_to_bed(base_filename, probes, samples):
     """
 
-    Return a BED file representative of all samples for the provided probes.
+    Return a BED file representative of all groups for the provided probes.
 
     :param base_filename: A base name for output file
     :param probes: A list of probes objects.
-    :param samples: A list of samples to extract data.
+    :param samples: A list of groups to extract data.
     :return: Static function - stores a file.
 
     """
@@ -333,7 +348,7 @@ def write_data(file_name, samples, probes):
 
     Export data to data table
 
-    :param samples: A list of samples.
+    :param samples: A list of groups.
     :param probes: A list of probes.
     :return: Writes a data file.
 
