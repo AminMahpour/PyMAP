@@ -124,7 +124,10 @@ class ParseFile:
         Returns all samples in this file.
 
         """
-        return self.samples
+        if len(self.samples) != 0:
+            return self.samples
+        else:
+            return None
 
     def check_file(self, filename):
         """
