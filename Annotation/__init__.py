@@ -287,6 +287,8 @@ class Annotator:
     def get_all_probes(self):
         """
 
+        Get a list of all probes.
+
         :return: A list of all probes in the Annotation object.
 
         """
