@@ -284,6 +284,20 @@ class Annotator:
 
         return out_list
 
+    def get_all_probes(self):
+        """
+
+        :return: A list of all probes in the Annotation object.
+
+        """
+
+        probe_list = []
+        for probe in self.probe.iterkeys():
+            probe_list.append(self.get_probe(probe))
+        return probe_list
+
+
+
     def get_probes_from_gene(self, gene_name):
         """
 

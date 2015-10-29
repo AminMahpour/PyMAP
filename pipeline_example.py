@@ -23,8 +23,8 @@ probe3 = Annotation.get_probes_from_feature(probe2, Annotation.Feature("BRCA1"))
 print(len(probe3))
 
 brcaprobes = annotations.get_probes(annotations.get_probes_id_from_gene("BRCA1"))
-#samples= [samples[0], samples[3]]
-Plot.BoxPlot(brcaprobes, samples)
+#groups= [groups[0], groups[3]]
+Plot.BoxPlot(probes, samples)
 
 # probe_list = annotations.get_probes_from_gene("TP53")
 
@@ -37,19 +37,19 @@ Plot.BoxPlot(brcaprobes, samples)
 # sort data
 # probe_list = annotations.sort_coord_probe(probe_list)
 
-# Core.write_data("data.txt", samples, probe_list)
+# Core.write_data("data.txt", groups, probe_list)
 
 Plot.Heatmap(samples, brcaprobes, "brca1.png")
 Plot.Heatmap(samples, probe3, "brca2.png")
 
-# pp.plot(samples[0].probes, samples[1].probes)
+# pp.plot(groups[0].probes, groups[1].probes)
 
 # pp.show()
 
 # probe_list = annotations.get_probes(["cg06976222", "cg00311963", "cg01061520"])
 
-# Core.probes_to_bed("Export/test2.bed", probe_list, samples.samples[0])
-# Core.samples_to_bed("Export/me", probe_list, samples)
+# Core.probes_to_bed("Export/test2.bed", probe_list, groups.groups[0])
+# Core.samples_to_bed("Export/me", probe_list, groups)
 
 
 # s1 = [parse.get_sample_by_no(0), parse.get_sample_by_no(1), parse.get_sample_by_no(2)]

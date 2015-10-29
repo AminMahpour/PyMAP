@@ -25,7 +25,7 @@ class Heatmap:
     This class creates a heatmap object
 
     :param probes: A list of probes.
-    :param samples: A list of samples.
+    :param samples: A list of groups.
     :param file_name: output filename.
     :param properties: An instance of Properties class `[optional]`.
 
@@ -156,11 +156,11 @@ class Heatmap:
 class BoxPlot:
     """
 
-    Box plot class creates a BoxPlot figure from probes and samples.
+    Box plot class creates a BoxPlot figure from probes and groups.
 
 
     :param probe_list: A list of probes.
-    :param samples: A list of samples.
+    :param samples: A list of groups.
     :param filename: output filename.
     :param imgtype: output image format.
 
@@ -174,7 +174,7 @@ class BoxPlot:
         Create a new BoxPlot.
 
         :param probe_list: A list of probes.
-        :param samples: A list of samples.
+        :param samples: A list of groups.
         :return:
 
         """
@@ -195,6 +195,68 @@ class BoxPlot:
             data.append(sample_data)
 
         samples_name = [sample.name for sample in samples]
+
+        fig, ax1 = pp.subplots(figsize=(10,6))
+        fig.canvas.set_window_title("Sample methylation boxplot")
+        ax1.set_axisbelow(True)
+
+
+        ax1.set_ylabel("Beta value")
+        ax1.set_xlabel("Sample")
+        ax1.yaxis.grid(True, linestyle="-", which= "major", color="lightgrey", alpha=0.5)
+        bp= pp.boxplot(data, labels=samples_name, notch=0, sym="+", vert=1, whis=1.5)
+        pp.xticks(fontsize=8)
+        pp.setp(bp["boxes"], color = "royalblue")
+        pp.setp(bp["whiskers"], color = "black")
+        pp.setp(bp["fliers"], color = "red", marker="+")
+        ax1.set_ylim(-.5, 1.5)
+
+        #pp.show()
+        pp.savefig("%s.%s" % (filename, imgtype))
+
+
+class BoxPlotGroups:
+    """
+
+    Box plot class creates a BoxPlot figure from Grouped groups.
+
+
+    :param probe_list: A list of probes.
+    :param groups: A list of groups.
+    :param filename: output filename.
+    :param imgtype: output image format.
+
+    :return: writes an image onto disk.
+
+    """
+
+    def __init__(self, probe_list, group1, group2, filename="boxplot", imgtype="png"):
+        """
+
+        Create a new BoxPlot.
+
+        :param probe_list: A list of probes.
+        :param group: A list of group.
+        :return:
+
+        """
+        self.probe_list = probe_list
+        self.group1 = group1
+        self.group2 = group2
+        data = []
+        for sample in group:
+
+            sample_data = []
+            for probe in self.probe_list:
+                try:
+                    sample_data.append(sample.probes[probe.id])
+
+                except Exception as ex:
+                    pass
+
+            data.append(sample_data)
+
+        samples_name = [sample.name for sample in group]
 
         fig, ax1 = pp.subplots(figsize=(10,6))
         fig.canvas.set_window_title("Sample methylation boxplot")
