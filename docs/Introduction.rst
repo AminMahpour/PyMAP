@@ -148,5 +148,7 @@ The following example will generate BoxPlot figure of probes that are associated
 
 Citation and Contact
 --------------------
+pyMAP: a Python package for small and large scale analysis of Illumina 450k methylation platform. Amin Mahpour; bioRxiv 078048; doi: https://doi.org/10.1101/078048
+
 Please cite this package with the Github URL until it is published.
 Please contact authors using Gitub platform for any inquiry.
